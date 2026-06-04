@@ -3,565 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Learning Platform for Mathieu</title>
+    <title>Mathieu's English Masterclass - Learning Portal</title>
+    <!-- Tailwind CSS for modern utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for premium executive look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --success-color: #2ecc71;
-            --danger-color: #e74c3c;
-            --light-bg: #f8f9fa;
-            --dark-text: #2c3e50;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        header p {
-            margin: 0.5rem 0 0 0;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .section-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .quiz-category-title {
-            background: #e1f5fe;
-            color: #0288d1;
-            padding: 0.5rem 1rem;
-            border-left: 4px solid #0288d1;
-            font-weight: bold;
-            margin-top: 2rem;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .question-block {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            background: var(--light-bg);
-        }
-
-        .question-text {
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .options-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .option-item {
-            background: white;
-            border: 2px solid #dee2e6;
-            border-radius: 6px;
-            padding: 0.8rem 1rem;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .option-item:hover:not(.disabled) {
-            border-color: var(--secondary-color);
-            background-color: #e8f4fd;
-        }
-
-        .option-item.correct {
-            background-color: #d4edda !important;
-            border-color: var(--success-color) !important;
-            color: #155724;
-            font-weight: bold;
-        }
-
-        .option-item.wrong {
-            background-color: #f8d7da !important;
-            border-color: var(--danger-color) !important;
-            color: #721c24;
-        }
-
-        .option-item.disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-
-        .explanation {
-            margin-top: 0.8rem;
-            padding: 0.8rem;
-            border-radius: 6px;
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            color: #856404;
-            display: none;
-            font-size: 0.95rem;
-        }
-
-        .btn-submit {
-            display: block;
-            width: 100%;
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 1rem;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 2rem;
-        }
-
-        .btn-submit:hover {
-            background-color: #2980b9;
-        }
-
-        #results-section {
-            display: none;
-        }
-
-        .score-display {
-            font-size: 1.8rem;
-            text-align: center;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .error-summary-item {
-            border-left: 4px solid var(--danger-color);
-            background: #fff5f5;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .expression-box {
-            background: #fdfefe;
-            border: 1px solid #e2e8f0;
-            padding: 1.2rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        .expression-title {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            font-weight: bold;
-            margin-bottom: 0.3rem;
-        }
-
-        .expression-meaning {
-            font-style: italic;
-            margin-bottom: 0.5rem;
-            color: #555;
-        }
-
-        .expression-example {
-            background: #edf2f7;
-            padding: 0.6rem;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.95rem;
+        .custom-gradient {
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 40%),
+                        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 60%);
         }
     </style>
 </head>
-<body>
+<body class="bg-[#f8fafc] text-[#334155] min-h-screen custom-gradient flex flex-col justify-between">
 
-    <header>
-        <h1>English Learning Dashboard</h1>
-        <p>Tailored Video Lesson & Quiz for Mathieu</p>
+    <!-- Top Decorative Line -->
+    <div class="h-2 w-full bg-gradient-to-r from-blue-600 via-teal-500 to-amber-500"></div>
+
+    <header class="max-w-6xl w-full mx-auto px-6 pt-12 pb-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-b border-slate-200 pb-8">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full">Private Education Portal</span>
+                <h1 class="font-serif text-4xl md:text-5xl font-bold text-slate-900 mt-3">Mathieu's Masterclass</h1>
+                <p class="text-slate-500 font-medium mt-1">Interactive curriculum & progress tracker for advanced English fluency</p>
+            </div>
+            
+            <!-- Quick Progress Stats widget -->
+            <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-sm flex items-center gap-4 min-w-[240px]">
+                <div class="relative w-14 h-14 flex items-center justify-center">
+                    <!-- Circular progress placeholder -->
+                    <svg class="absolute w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                        <path class="text-slate-100" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path id="progress-circle" class="text-emerald-500 transition-all duration-500" stroke-dasharray="0, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <span id="progress-percent" class="font-bold text-slate-800 text-sm">0%</span>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Overall Progress</h4>
+                    <p id="progress-subtitle" class="text-sm font-semibold text-slate-700">0 of 2 Lessons Completed</p>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <div class="section-card">
-            <h2>1. Watch the Video</h2>
-            <p>Listen closely to the lyrics, the rhythm, and the pronunciation of the words in this video before taking the test.</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dCGkt7_0Qpo" allowfullscreen></iframe>
+    <main class="max-w-6xl w-full mx-auto px-6 py-6 flex-grow">
+        <!-- Quick stats grid -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                <div class="text-blue-600 bg-blue-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="text-2xl font-extrabold text-slate-800">2</div>
+                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Total Lessons</div>
             </div>
-        </div>
-
-        <div class="section-card" id="quiz-section">
-            <h2>2. Interactive Multiple Choice Quiz (MCQ)</h2>
-            <p>Answer the 20 questions below. You will see the correct answer and a quick explanation immediately after clicking your choice.</p>
             
-            <div id="quiz-container"></div>
+            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                <div class="text-teal-600 bg-teal-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
+                    <i class="fa-solid fa-circle-question"></i>
+                </div>
+                <div class="text-2xl font-extrabold text-slate-800">40</div>
+                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Practice Items</div>
+            </div>
+
+            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                <div class="text-amber-600 bg-amber-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
+                    <i class="fa-solid fa-comment-dots"></i>
+                </div>
+                <div class="text-2xl font-extrabold text-slate-800">15</div>
+                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Key Expressions</div>
+            </div>
+
+            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                <div class="text-purple-600 bg-purple-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <div class="text-2xl font-extrabold text-slate-800" id="xp-display">0 XP</div>
+                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Experience Points</div>
+            </div>
+        </section>
+
+        <h2 class="font-serif text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
+            <i class="fa-solid fa-calendar-days text-blue-500"></i> Your Friday Lessons
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             
-            <button class="btn-submit" onclick="calculateScore()">Finish Quiz & See Report</button>
-        </div>
+            <!-- LESSON 1 CARD: May 28, 2026 -->
+            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <!-- Visual Header with mock thumbnail representation -->
+                    <div class="relative bg-slate-900 h-48 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://img.youtube.com/vi/dCGkt7_0Qpo/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+                        
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Economy & Satire</span>
+                        </div>
+                        
+                        <!-- Status Badge (Interactive) -->
+                        <div class="absolute top-4 right-4" id="badge-l1">
+                            <span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700">
+                                <i class="fa-regular fa-circle"></i> Incomplete
+                            </span>
+                        </div>
 
-        <div class="section-card" id="results-section">
-            <h2>3. Your Performance Report</h2>
-            <div class="score-display" id="score-text"></div>
-            
-            <h3>Incorrect Answers Review</h3>
-            <div id="error-summary-container"></div>
-        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Lesson 1</span>
+                            <h3 class="text-white font-bold text-lg leading-snug mt-1">The Great American Bankruptcy</h3>
+                        </div>
+                    </div>
 
-        <div class="section-card">
-            <h2>4. Useful Expressions from the Video</h2>
-            <p>Here are key idioms, collocations, and expressions extracted from the lyrics that you can use in daily life:</p>
-            
-            <div class="expression-box">
-                <div class="expression-title">"Give or take"</div>
-                <div class="expression-meaning">Meaning: Approximately, more or less.</div>
-                <div class="expression-example">Everyday Example: "The meeting will last about 45 minutes, give or take."</div>
+                    <!-- Lesson Metadata & Goals -->
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4">
+                            <i class="fa-solid fa-calendar"></i> Friday, May 28, 2026
+                            <span class="text-slate-300">•</span>
+                            <i class="fa-solid fa-clock"></i> 20-Question Quiz
+                        </div>
+                        
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                            Analyze political satire, tax metaphors, and macroeconomic terms through Lego Records' viral music video. Expand your business, grammatical, and pronunciation skills.
+                        </p>
+
+                        <!-- Highlights list -->
+                        <div class="space-y-2 border-t border-slate-100 pt-4 mb-2">
+                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
+                                <i class="fa-solid fa-check text-emerald-500"></i> Learn expressions like <span class="font-mono text-blue-600">"give or take"</span> &amp; <span class="font-mono text-blue-600">"pink slips"</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
+                                <i class="fa-solid fa-check text-emerald-500"></i> Practice past tenses, gerunds, and purpose clauses
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom controls -->
+                <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer select-none">
+                        <input type="checkbox" id="check-l1" onchange="toggleLessonStatus('l1')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
+                        <span class="text-xs font-bold text-slate-500">Mark Completed</span>
+                    </label>
+                    <a href="friday-2026-05-28.html" target="_blank" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
+                        Start Lesson <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
             </div>
 
-            <div class="expression-box">
-                <div class="expression-title">"Just like that"</div>
-                <div class="expression-meaning">Meaning: Suddenly, unexpectedly, or without effort.</div>
-                <div class="expression-example">Everyday Example: "He stood up, packed his bags, and left the company just like that."</div>
+            <!-- LESSON 2 CARD: June 5, 2026 -->
+            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <!-- Visual Header with mock thumbnail representation -->
+                    <div class="relative bg-slate-900 h-48 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://img.youtube.com/vi/COzTfps9ezM/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+                        
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Cognitive Science</span>
+                        </div>
+                        
+                        <!-- Status Badge (Interactive) -->
+                        <div class="absolute top-4 right-4" id="badge-l2">
+                            <span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700">
+                                <i class="fa-regular fa-circle"></i> Incomplete
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Lesson 2</span>
+                            <h3 class="text-white font-bold text-lg leading-snug mt-1">The Genius Learning Pattern</h3>
+                        </div>
+                    </div>
+
+                    <!-- Lesson Metadata & Goals -->
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4">
+                            <i class="fa-solid fa-calendar"></i> Friday, June 5, 2026
+                            <span class="text-slate-300">•</span>
+                            <i class="fa-solid fa-clock"></i> 20-Question Quiz
+                        </div>
+                        
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                            Discover how polymaths like Leonardo da Vinci and Richard Feynman mastered cross-pollination. Learn active recall strategies and avoid the "leaky bucket" trap.
+                        </p>
+
+                        <!-- Highlights list -->
+                        <div class="space-y-2 border-t border-slate-100 pt-4 mb-2">
+                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
+                                <i class="fa-solid fa-check text-emerald-500"></i> Master verbs like <span class="font-mono text-blue-600">"cross-pollinate"</span> &amp; <span class="font-mono text-blue-600">"break down"</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
+                                <i class="fa-solid fa-check text-emerald-500"></i> Master silent letters (Psychology, Paradigm) and inversions
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom controls -->
+                <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer select-none">
+                        <input type="checkbox" id="check-l2" onchange="toggleLessonStatus('l2')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
+                        <span class="text-xs font-bold text-slate-500">Mark Completed</span>
+                    </label>
+                    <a href="friday-2026-06-05.html" target="_blank" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
+                        Start Lesson <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
             </div>
 
-            <div class="expression-box">
-                <div class="expression-title">"Before they blink an eye"</div>
-                <div class="expression-meaning">Meaning: Extremely quickly, in an instant.</div>
-                <div class="expression-example">Everyday Example: "Don't leave your coffee there; the cat will knock it over before you blink an eye."</div>
-            </div>
-
-            <div class="expression-box">
-                <div class="expression-title">"Get your pink slip"</div>
-                <div class="expression-meaning">Meaning: To receive an official notice of job dismissal or termination.</div>
-                <div class="expression-example">Everyday Example: "During the economic recession, hundreds of corporate workers got their pink slips."</div>
-            </div>
-
-            <div class="expression-box">
-                <div class="expression-title">"Lord have mercy"</div>
-                <div class="expression-meaning">Meaning: An expression used to show surprise, shock, dismay, or distress.</div>
-                <div class="expression-example">Everyday Example: "Lord have mercy, look at this massive traffic jam! We are going to be late."</div>
-            </div>
         </div>
     </main>
 
+    <footer class="bg-white border-t border-slate-200 mt-16">
+        <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold text-slate-400 uppercase tracking-widest">
+            <div>
+                <i class="fa-solid fa-circle-nodes text-slate-300 mr-1"></i> Interactive English Portfolio
+            </div>
+            <div>
+                Curriculum Updated June 2026
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive script to remember completion status -->
     <script>
-        const quizData = [
-            // COMPREHENSION (1-5)
-            {
-                category: "Comprehension Questions",
-                q: "What product's price is mentioned as climbing to 'about a hundred bucks' for a dozen?",
-                options: ["A gallon of milk", "A dozen eggs", "A loaf of bread", "A pound of meat"],
-                correct: 1,
-                explanation: "The lyrics state: 'now a dozen eggs will cost you about a hundred bucks' [00:00:26]."
-            },
-            {
-                category: "Comprehension Questions",
-                q: "According to the song, how many executive orders were signed?",
-                options: ["50 orders", "100 orders", "250 orders", "500 orders"],
-                correct: 2,
-                explanation: "The song mentions: 'he signed 250 executive orders give or take' [00:01:28]."
-            },
-            {
-                category: "Comprehension Questions",
-                q: "Who is described as coming 'riding down from orbit in the sky' to cut the workforce?",
-                options: ["The Tariff Man", "Elon", "A generic billionaire", "The school principal"],
-                correct: 1,
-                explanation: "The lyric states: 'now Elon came riding down from orbit in the sky said I'll cut the federal workforce' [00:02:22]."
-            },
-            {
-                category: "Comprehension Questions",
-                q: "How many workers allegedly received their pink slips in the mail?",
-                options: ["10,000 workers", "34,000 workers", "60,000 workers", "100,000 workers"],
-                correct: 2,
-                explanation: "The line goes: '60,000 workers got their pink slips in the mail' [00:02:33]."
-            },
-            {
-                category: "Comprehension Questions",
-                q: "To what percentage did the leader's approval rating drop?",
-                options: ["50%", "34%", "12%", "20%"],
-                correct: 1,
-                explanation: "The song mentions: 'his approval dropped to 34 the lowest of his reign' [00:03:14]."
-            },
+        // Unique key for tracking lessons
+        const storageKey = 'mathieu_lessons_state_2026';
 
-            // VOCABULARY (6-10)
-            {
-                category: "Vocabulary Questions",
-                q: "What does the word 'tariff' mean in an economic context?",
-                options: ["A tax imposed on imported goods", "A direct cash subsidy given to farmers", "The total value of a country's stock market", "A discount applied during holiday sales"],
-                correct: 0,
-                explanation: "A tariff is a tax or duty to be paid on a particular class of imports or exports."
-            },
-            {
-                category: "Vocabulary Questions",
-                q: "In the lyric 'the prices never wane', what does 'wane' mean?",
-                options: ["To increase dramatically", "To fluctuate unpredictably", "To decrease or become weaker", "To stay stable"],
-                correct: 2,
-                explanation: "'Wane' means to decrease in vigor, power, or size; to fade away or diminish."
-            },
-            {
-                category: "Vocabulary Questions",
-                q: "What is a '401k' as referenced in the song?",
-                options: ["A type of high-speed electric car", "A retirement savings plan sponsored by an employer", "A secret government building", "The weight limit for cargo ships"],
-                correct: 1,
-                explanation: "In the US, a 401(k) is a feature of a qualified profit-sharing plan that allows employees to contribute a portion of their wages to individual accounts for retirement."
-            },
-            {
-                category: "Vocabulary Questions",
-                q: "What does 'rigging' mean in the phrase 'rigging ballot rules'?",
-                options: ["Improving and fixing rules legally", "Managing or manipulating something fraudulently", "Translating rules into other languages", "Voting early in the morning"],
-                correct: 1,
-                explanation: "To 'rig' means to manage or conduct something in a dishonest way to achieve a desired result."
-            },
-            {
-                category: "Vocabulary Questions",
-                q: "What is the meaning of the word 'disbelief' in 'shaking heads in disbelief'?",
-                options: ["An absolute certainty", "The inability to believe something is true", "A religious ceremony", "Great happiness"],
-                correct: 1,
-                explanation: "'Disbelief' is the inability to accept that something is true or real, often due to shock."
-            },
+        // Load saved state or default
+        let state = {
+            l1: false,
+            l2: false
+        };
 
-            // PRONUNCIATION (11-15)
-            {
-                category: "Pronunciation Questions",
-                q: "Which word rhymes perfectly with 'Bordeaux' in the opening verse?",
-                options: ["Globe", "House", "Country", "Smile"],
-                correct: 0,
-                explanation: "The singer rhymes 'golden globe' with 'Beijing to Bordeaux' [00:00:14], matching the long /oʊ/ vowel sound."
-            },
-            {
-                category: "Pronunciation Questions",
-                q: "How is the 'ch' in the word 'stomach' or 'workforce' typically pronounced compared to 'chains'?",
-                options: ["'Chains' has a soft /tʃ/ sound, while 'workforce' does not contain 'ch'", "They sound identical", "'Chains' is pronounced with a /k/ sound", "None of the above"],
-                correct: 0,
-                explanation: "'Chains' uses the standard /tʃ/ affricate sound. Make sure not to confuse it with words where 'ch' sounds like /k/ (e.g., stomach, chaos)."
-            },
-            {
-                category: "Pronunciation Questions",
-                q: "In the word 'sovereign' or 'reign', the letter 'g' is...",
-                options: ["Pronounced like a hard /g/", "Pronounced like a /j/", "Silent", "Pronounced like an /f/"],
-                correct: 2,
-                explanation: "In the word 'reign' [00:03:14], the letter 'g' is completely silent. It sounds exactly like 'rain'."
-            },
-            {
-                category: "Pronunciation Questions",
-                q: "Which of these words from the song has a silent 'b' at the end?",
-                options: ["Billionaires", "Climbing", "Ballot", "Broke"],
-                correct: 1,
-                explanation: "In the word 'climbing' [00:00:26] (from 'climb'), the 'b' is completely silent. It is pronounced /klaɪmɪŋ/."
-            },
-            {
-                category: "Pronunciation Questions",
-                q: "In American English, how is the 't' in 'workforce got their' or 'started' often pronounced when spoken quickly?",
-                options: ["As a hard, sharp 'T' sound", "As a flap 'D' sound or glottal stop", "It is completely transformed into an 'S'", "It is silent like the 'p' in psychology"],
-                correct: 1,
-                explanation: "In fast American speech, intervocalic 't' (or 't' between words) often turns into a flap /d/ sound ('star-ded')."
-            },
-
-            // GRAMMAR (16-20)
-            {
-                category: "Grammar Questions",
-                q: "Identify the tense used in: 'well he walked into the White House'.",
-                options: ["Present Perfect", "Past Continuous", "Simple Past", "Past Perfect"],
-                correct: 2,
-                explanation: "'Walked' is the regular simple past form of the verb 'to walk'."
-            },
-            {
-                category: "Grammar Questions",
-                q: "In 'the prices started climbing', what grammatical form is 'climbing'?",
-                options: ["A gerund acting as the object of the verb", "A past participle", "A modal auxiliary verb", "An adjective modifying 'prices'"],
-                correct: 0,
-                explanation: "'Climbing' here is a gerund (verb+ing acting as a noun) following the verb 'start'."
-            },
-            {
-                category: "Grammar Questions",
-                q: "What is the function of 'll' in 'I'll tariff every country'?",
-                options: ["It indicates past possession", "It is a contraction of 'will' to express future intent or certainty", "It is a plural marker", "It means 'less'"],
-                correct: 1,
-                explanation: "'I'll' is the short contraction of 'I will', used to express future actions."
-            },
-            {
-                category: "Grammar Questions",
-                q: "Choose the correct pronoun type for 'us' in 'the rest of us are paying'.",
-                options: ["Subject Pronoun", "Object Pronoun", "Possessive Pronoun", "Reflexive Pronoun"],
-                correct: 1,
-                explanation: "'Us' is an object pronoun used after the preposition 'of'."
-            },
-            {
-                category: "Grammar Questions",
-                q: "What type of conditional or phrase structure is 'so he won't feel the shame'?",
-                options: ["A purpose clause explaining why he is doing the action", "A zero conditional structure", "A passive voice agent clause", "An inverted past real condition"],
-                correct: 0,
-                explanation: "'So' (or 'so that') introduces a clause of purpose or result, indicating the reason why he is 'rigging ballot rules'."
-            }
-        ];
-
-        let userAnswers = new Array(quizData.length).fill(null);
-
-        function initQuiz() {
-            const container = document.getElementById('quiz-container');
-            let currentCategory = "";
-
-            quizData.forEach((item, index) => {
-                if (item.category !== currentCategory) {
-                    currentCategory = item.category;
-                    const catHeader = document.createElement('div');
-                    catHeader.className = 'quiz-category-title';
-                    catHeader.innerText = currentCategory;
-                    container.appendChild(catHeader);
+        function loadState() {
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                try {
+                    state = JSON.parse(saved);
+                } catch(e) {
+                    console.error("Error parsing stored states", e);
                 }
-
-                const qBlock = document.createElement('div');
-                qBlock.className = 'question-block';
-                qBlock.id = `question-${index}`;
-
-                const qText = document.createElement('div');
-                qText.className = 'question-text';
-                qText.innerText = `${index + 1}. ${item.q}`;
-                qBlock.appendChild(qText);
-
-                const optionsList = document.createElement('ul');
-                optionsList.className = 'options-list';
-
-                item.options.forEach((option, oIndex) => {
-                    const oItem = document.createElement('li');
-                    oItem.className = 'option-item';
-                    oItem.innerText = option;
-                    oItem.onclick = () => selectOption(index, oIndex);
-                    optionsList.appendChild(oItem);
-                });
-
-                qBlock.appendChild(optionsList);
-
-                const expl = document.createElement('div');
-                expl.className = 'explanation';
-                expl.id = `explanation-${index}`;
-                expl.innerHTML = `<strong>Explanation:</strong> ${item.explanation}`;
-                qBlock.appendChild(expl);
-
-                container.appendChild(qBlock);
-            });
+            }
+            updateUI();
         }
 
-        function selectOption(qIndex, oIndex) {
-            if (userAnswers[qIndex] !== null) return; // Prevent changing answer
-
-            userAnswers[qIndex] = oIndex;
-            const qBlock = document.getElementById(`question-${qIndex}`);
-            const options = qBlock.getElementsByClassName('option-item');
-            const correctIndex = quizData[qIndex].correct;
-
-            // Highlight chosen and correct answers
-            for (let i = 0; i < options.length; i++) {
-                options[i].classList.add('disabled');
-                if (i === correctIndex) {
-                    options[i].classList.add('correct');
-                }
-                if (i === oIndex && oIndex !== correctIndex) {
-                    options[i].classList.add('wrong');
-                }
-            }
-
-            // Show explanation instantly
-            document.getElementById(`explanation-${qIndex}`).style.display = 'block';
+        function toggleLessonStatus(lessonId) {
+            state[lessonId] = document.getElementById(`check-${lessonId}`).checked;
+            localStorage.setItem(storageKey, JSON.stringify(state));
+            updateUI();
         }
 
-        function calculateScore() {
-            let score = 0;
-            const errorContainer = document.getElementById('error-summary-container');
-            errorContainer.innerHTML = ''; // Reset previous summary
-
-            let unansweredCount = userAnswers.filter(x => x === null).length;
-            if (unansweredCount > 0) {
-                if (!confirm(`You have ${unansweredCount} unanswered question(s). Do you still want to finish?`)) {
-                    return;
-                }
-            }
-
-            quizData.forEach((item, index) => {
-                const userChoice = userAnswers[index];
-                if (userChoice === item.correct) {
-                    score++;
-                } else {
-                    // Create error summary item
-                    const errorItem = document.createElement('div');
-                    errorItem.className = 'error-summary-item';
-                    
-                    const userAnswText = userChoice !== null ? item.options[userChoice] : "No Answer";
-                    
-                    errorItem.innerHTML = `
-                        <strong>Question ${index + 1}:</strong> ${item.q}<br>
-                        <span style="color:var(--danger-color)">✗ Your Answer: ${userAnswText}</span><br>
-                        <span style="color:var(--success-color)">✓ Correct Answer: ${item.options[item.correct]}</span><br>
-                        <small style="color:#555; display:block; margin-top:0.3rem;"><strong>Correction Guide:</strong> ${item.explanation}</small>
-                    `;
-                    errorContainer.appendChild(errorItem);
-                }
-            });
-
-            if (score === quizData.length) {
-                errorContainer.innerHTML = '<p style="color:var(--success-color); font-weight:bold;">Perfect score! You made zero mistakes. Excellent job, Mathieu!</p>';
-            }
-
-            // Display overall score results
-            document.getElementById('score-text').innerText = `Your Score: ${score} / ${quizData.length}`;
-            document.getElementById('results-section').style.display = 'block';
+        function updateUI() {
+            let completedCount = 0;
             
-            // Scroll down to results section smoothly
-            document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+            // Handle Lesson 1
+            const checkL1 = document.getElementById('check-l1');
+            const badgeL1 = document.getElementById('badge-l1');
+            checkL1.checked = state.l1;
+            if (state.l1) {
+                completedCount++;
+                badgeL1.innerHTML = `<span class="bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-circle-check"></i> Completed</span>`;
+            } else {
+                badgeL1.innerHTML = `<span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700"><i class="fa-regular fa-circle"></i> Incomplete</span>`;
+            }
+
+            // Handle Lesson 2
+            const checkL2 = document.getElementById('check-l2');
+            const badgeL2 = document.getElementById('badge-l2');
+            checkL2.checked = state.l2;
+            if (state.l2) {
+                completedCount++;
+                badgeL2.innerHTML = `<span class="bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-circle-check"></i> Completed</span>`;
+            } else {
+                badgeL2.innerHTML = `<span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700"><i class="fa-regular fa-circle"></i> Incomplete</span>`;
+            }
+
+            // Update Circle Progress and Score Indicators
+            const totalLessons = 2;
+            const percent = Math.round((completedCount / totalLessons) * 100);
+            
+            // Update Text
+            document.getElementById('progress-percent').innerText = `${percent}%`;
+            document.getElementById('progress-subtitle').innerText = `${completedCount} of ${totalLessons} Lessons Completed`;
+            
+            // Update Circle stroke
+            const circle = document.getElementById('progress-circle');
+            circle.setAttribute('stroke-dasharray', `${percent}, 100`);
+
+            // Update XP (100 XP per completed lesson)
+            document.getElementById('xp-display').innerText = `${completedCount * 100} XP`;
         }
 
-        // Initialize quiz on load
-        window.onload = initQuiz;
+        // Initialize state check on window load
+        window.onload = loadState;
     </script>
+
 </body>
 </html>

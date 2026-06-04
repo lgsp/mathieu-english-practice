@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hidden Learning Pattern Behind Every Genius — Lesson</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f0f2f5; color: #1a1a2e; line-height: 1.7;
+    padding: 20px;
+  }
+  .container { max-width: 960px; margin: 0 auto; }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff; padding: 40px 30px; border-radius: 16px; margin-bottom: 30px;
+    text-align: center;
+  }
+  header h1 { font-size: 1.8em; margin-bottom: 8px; }
+  header p { color: #a8b2d1; font-size: 1.05em; }
+  .video-wrapper {
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+    border-radius: 12px; margin-bottom: 30px; background: #000;
+  }
+  .video-wrapper iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    border: 0;
+  }
+  section {
+    background: #fff; border-radius: 12px; padding: 28px 30px;
+    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  section h2 {
+    font-size: 1.35em; margin-bottom: 20px; padding-bottom: 10px;
+    border-bottom: 3px solid #0f3460; color: #0f3460;
+  }
+  section h3 {
+    font-size: 1.1em; margin: 18px 0 10px; color: #16213e;
+  }
+  .q-block { margin-bottom: 20px; padding: 16px; border-radius: 8px; background: #f8f9fc; }
+  .q-block.correct { background: #e8f5e9; }
+  .q-block.wrong { background: #fbe9e7; }
+  .q-text { font-weight: 600; margin-bottom: 10px; font-size: 1.02em; }
+  .q-tag {
+    display: inline-block; font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+    border-radius: 20px; margin-right: 8px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .tag-comp { background: #e3f2fd; color: #1565c0; }
+  .tag-vocab { background: #f3e5f5; color: #7b1fa2; }
+  .tag-pron { background: #fff3e0; color: #e65100; }
+  .tag-gram { background: #e8f5e9; color: #2e7d32; }
+  .opts { display: flex; flex-direction: column; gap: 6px; }
+  .opts label {
+    display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+    border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer;
+    transition: all .15s; font-size: 0.95em;
+  }
+  .opts label:hover { border-color: #90caf9; background: #f5f9ff; }
+  .opts input[type="radio"] { appearance: none; width: 18px; height: 18px; border: 2px solid #bbb;
+    border-radius: 50%; position: relative; flex-shrink: 0; cursor: pointer; }
+  .opts input[type="radio"]:checked { border-color: #0f3460; background: #0f3460; }
+  .opts input[type="radio"]:checked::after { content: ''; position: absolute; width: 8px; height: 8px;
+    background: #fff; border-radius: 50%; top: 3px; left: 3px; }
+  .opts label.chosen { border-color: #0f3460; background: #e8eef6; }
+  .opts label.correct { border-color: #2e7d32; background: #e8f5e9; }
+  .opts label.wrong { border-color: #c62828; background: #fbe9e7; }
+  .opts label.disabled { opacity: 0.7; pointer-events: none; }
+  .explanation {
+    margin-top: 10px; padding: 12px 16px; border-radius: 8px;
+    font-size: 0.92em; display: none;
+  }
+  .explanation.show { display: block; }
+  .explain-ok { background: #e8f5e9; border-left: 4px solid #2e7d32; }
+  .explain-ko { background: #fbe9e7; border-left: 4px solid #c62828; }
+  .recap-btn {
+    display: block; width: 100%; padding: 16px; font-size: 1.1em; font-weight: 700;
+    background: #0f3460; color: #fff; border: none; border-radius: 10px;
+    cursor: pointer; transition: background .2s;
+  }
+  .recap-btn:hover { background: #1a5276; }
+  .recap-btn:disabled { background: #bbb; cursor: not-allowed; }
+  #recap {
+    display: none; margin-top: 20px; padding: 20px; border-radius: 10px;
+    background: #fff8e1; border: 2px solid #ffc107;
+  }
+  #recap.show { display: block; }
+  #recap h3 { color: #e65100; }
+  .recap-item { padding: 10px 0; border-bottom: 1px solid #ffe0b2; }
+  .recap-item:last-child { border: none; }
+  .recap-q { font-weight: 600; }
+  .recap-your { color: #c62828; }
+  .recap-correct { color: #2e7d32; }
+  .score-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 18px; border-radius: 30px; font-size: 1em; font-weight: 700;
+  }
+  .score-badge.ok { background: #e8f5e9; color: #2e7d32; }
+  .score-badge.ko { background: #fbe9e7; color: #c62828; }
+  .expr-item {
+    padding: 18px 0; border-bottom: 1px solid #e0e0e0;
+  }
+  .expr-item:last-child { border: none; }
+  .expr-phrase { font-size: 1.1em; font-weight: 700; color: #0f3460; }
+  .expr-example { margin: 8px 0 6px; padding: 10px 14px; background: #f5f7fb;
+    border-radius: 6px; border-left: 3px solid #0f3460; font-style: italic; }
+  .expr-similar { font-size: 0.92em; color: #555; }
+  .expr-similar strong { color: #333; }
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    section { padding: 18px; }
+    header h1 { font-size: 1.35em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>The Hidden Learning Pattern Behind Every Genius</h1>
+  <p>EverLearning Growth — Lesson for Friday 5 June 2026</p>
+</header>
+
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/COzTfps9ezM"
+    title="The Hidden Learning Pattern Behind Every Genius"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen loading="lazy"></iframe>
+</div>
+
+<section id="qcm">
+  <h2>📝 Quiz — Test Your Understanding</h2>
+  <p style="margin-bottom:16px;color:#555;" id="live-score">Answer the 20 questions below.</p>
+  <div id="questions"></div>
+  <button class="recap-btn" id="recap-btn" onclick="showRecap()">📊 See My Results</button>
+  <div id="recap">
+    <h3>❌ Mistakes &amp; Corrections</h3>
+    <div id="recap-list"></div>
+    <p style="margin-top:12px;" id="recap-summary"></p>
+  </div>
+</section>
+
+<section id="expressions">
+  <h2>💬 10 Key Expressions from the Video</h2>
+  <p style="margin-bottom:12px;color:#555;">Each with a real-life example and similar expressions.</p>
+  <div id="expr-list"></div>
+</section>
+
+</div>
+
+<script>
+// ===== DATA =====
+const questions = [
+  // ---- COMPREHENSION ----
+  { id: 'c1', type: 'comp', tag: 'Comprehension',
+    q: 'According to the video, what is the main difference between how geniuses and ordinary people learn?',
+    opts: ['Geniuses are born with larger brains',
+           'Geniuses follow a specific learning pattern involving active recall, rest, and connection-making',
+           'Geniuses study twice as many hours as ordinary people',
+           'Geniuses only read books written by other geniuses'],
+    correct: 1,
+    explain: 'The video argues that geniuses don\'t just work harder — they follow a deliberate pattern: they actively recall information, allow time for incubation/rest, and actively connect new ideas to existing knowledge.' },
+  { id: 'c2', type: 'comp', tag: 'Comprehension',
+    q: 'What did Edward Tolman\'s famous maze experiment with rats demonstrate?',
+    opts: ['Rats cannot learn without immediate rewards',
+           'Learning can happen without reinforcement through the formation of cognitive maps',
+           'All learning requires punishment and reward',
+           'Rats have no memory of spaces they explore'],
+    correct: 1,
+    explain: 'Tolman showed that rats explored a maze without reward and still formed a "cognitive map" of it. When food was later introduced, they navigated it immediately — proving latent learning exists.' },
+  { id: 'c3', type: 'comp', tag: 'Comprehension',
+    q: 'What role does "mind wandering" play in learning according to the video?',
+    opts: ['It is always a distraction and should be avoided',
+           'It helps the brain unconsciously detect hidden patterns and consolidate memories',
+           'It only happens when people are bored',
+           'It reduces the brain\'s ability to learn new information'],
+    correct: 1,
+    explain: 'Recent neuroscience research shows that mind wandering activates the default mode network, which helps connect disparate ideas and consolidate learning — it\'s not wasted time.' },
+  { id: 'c4', type: 'comp', tag: 'Comprehension',
+    q: 'Why do geniuses like Leonardo da Vinci and Benjamin Franklin keep notebooks?',
+    opts: ['To show off their drawing skills',
+           'To externalize their thinking, connect ideas across domains, and revisit insights later',
+           'Because they had bad memories',
+           'To write diaries about their daily lives'],
+    correct: 1,
+    explain: 'The video highlights that geniuses externalize their thoughts in notebooks to create a "second brain," enabling them to connect ideas across different fields — a key pattern behind breakthroughs.' },
+  { id: 'c5', type: 'comp', tag: 'Comprehension',
+    q: 'What does "desirable difficulties" mean in the context of learning?',
+    opts: ['Learning should be as easy as possible',
+             'Challenging learning conditions that initially feel hard lead to stronger long-term retention',
+             'Difficulties are always bad for students',
+             'Only easy material should be studied'],
+    correct: 1,
+    explain: 'Research by the Bjorks shows that when learning feels harder (e.g., through active recall, interleaving, or spacing), the brain builds stronger neural pathways, resulting in better long-term memory.' },
+
+  // ---- VOCABULARY ----
+  { id: 'v1', type: 'vocab', tag: 'Vocabulary',
+    q: 'What does "latent learning" mean?',
+    opts: ['Learning that happens while sleeping',
+           'Learning that occurs without obvious reinforcement and is not demonstrated until there is motivation',
+           'Learning a new language',
+           'Learning that happens automatically without any effort'],
+    correct: 1,
+    explain: '"Latent" means hidden or dormant. Latent learning is knowledge we gain without trying and only show when we need it — like knowing a route as a passenger without ever having driven it.' },
+  { id: 'v2', type: 'vocab', tag: 'Vocabulary',
+    q: 'What is a "cognitive map"?',
+    opts: ['A map of a country',
+           'A mental representation of the layout of one\'s environment',
+           'A GPS navigation system',
+           'A type of brain scan'],
+    correct: 1,
+    explain: 'A cognitive map is an internal mental model of spatial relationships or conceptual connections. Tolman coined the term to explain how rats (and humans) learn environments without direct reinforcement.' },
+  { id: 'v3', type: 'vocab', tag: 'Vocabulary',
+    q: 'What does "neuroplasticity" refer to?',
+    opts: ['The brain\'s ability to reorganize itself by forming new neural connections throughout life',
+           'The hardening of brain tissue with age',
+           'A disease that affects memory',
+           'The fixed structure of the adult brain'],
+    correct: 0,
+    explain: 'Neuroplasticity is the brain\'s ability to change and adapt — even in adulthood. The video emphasizes that genius is not fixed; anyone can rewire their brain through the right learning patterns.' },
+  { id: 'v4', type: 'vocab', tag: 'Vocabulary',
+    q: 'What does "incubation" mean in a learning context?',
+    opts: ['Keeping eggs warm',
+           'A period of rest or distraction after intense focus that allows the subconscious to process ideas',
+           'Studying in a laboratory',
+           'Taking an exam'],
+    correct: 1,
+    explain: 'Incubation is the stage where you step away from a problem and let your subconscious work on it. The video cites research showing that breaks and sleep are crucial for creative breakthroughs.' },
+  { id: 'v5', type: 'vocab', tag: 'Vocabulary',
+    q: 'What is "active recall"?',
+    opts: ['Reading a textbook multiple times',
+           'Highlighting important sentences',
+           'Actively retrieving information from memory without looking at the source',
+           'Listening to a lecture again'],
+    correct: 2,
+    explain: 'Active recall is the practice of testing yourself — closing the book and trying to remember. The video presents this as one of the most effective learning techniques, far superior to passive review.' },
+
+  // ---- PRONUNCIATION ----
+  { id: 'p1', type: 'pron', tag: 'Pronunciation',
+    q: 'Which syllable is stressed in the word "genius" /ˈdʒiː.ni.əs/?',
+    opts: ['First syllable: GE-nius',
+           'Second syllable: ge-NI-us',
+           'Third syllable: ge-ni-US',
+           'All syllables equally'],
+    correct: 0,
+    explain: '"Genius" is stressed on the first syllable: /ˈdʒiː.ni.əs/. The first "e" is long (like "gee"), the "i" is short, and the final "us" is unstressed and reduced.' },
+  { id: 'p2', type: 'pron', tag: 'Pronunciation',
+    q: 'How do you pronounce "cognitive" /ˈkɒɡ.nɪ.tɪv/?',
+    opts: ['COG-ni-tive (stress on first syllable)',
+           'cog-NI-tive (stress on second syllable)',
+           'cog-ni-TIVE (stress on third syllable)',
+           'COG-nite-iv'],
+    correct: 0,
+    explain: 'The stress is on the first syllable: COG-ni-tive. The "g" is hard, and the first "o" is short as in "hot" in British English.' },
+  { id: 'p3', type: 'pron', tag: 'Pronunciation',
+    q: 'Which is the correct pronunciation of "neuroplasticity"?',
+    opts: ['/njʊə.rəʊ.plæsˈtɪs.ɪ.ti/',
+           '/nɛr.ɒ.plas.tɪˈsaɪ.ti/',
+           '/nuː.rɒp.laːsˈtiː.sɪ.ti/',
+           '/nɪər.ɒp.læsˈtɪk/'],
+    correct: 0,
+    explain: 'The word is pronounced /njʊə.rəʊ.plæsˈtɪs.ɪ.ti/ — "neuro" rhymes with "pure-oh", "plasticity" has stress on the "tis" syllable.' },
+  { id: 'p4', type: 'pron', tag: 'Pronunciation',
+    q: 'How is "latent" correctly pronounced?',
+    opts: ['/ˈleɪ.tənt/',
+           '/læˈtent/',
+           '/ˈlɑː.tənt/',
+           '/ləˈtɛnt/'],
+    correct: 0,
+    explain: '"Latent" is pronounced /ˈleɪ.tənt/ — stress on the first syllable, with a long "ay" sound as in "layer", and a weak second syllable.' },
+  { id: 'p5', type: 'pron', tag: 'Pronunciation',
+    q: 'Select the correct pronunciation of "incubation".',
+    opts: ['/ˌɪn.kjʊˈbeɪ.ʃən/',
+           '/ˈɪn.kuː.beɪ.ʃən/',
+           '/ɪnˈkʌb.ə.ʃən/',
+           '/ˌɪŋ.kjuːˈbæʃ.ən/'],
+    correct: 0,
+    explain: 'Stress is on the third syllable: in-kyoo-BAY-shən. The "u" is /juː/ as in "cute", and the final "-tion" is /ʃən/.' },
+
+  // ---- GRAMMAR ----
+  { id: 'g1', type: 'gram', tag: 'Grammar',
+    q: 'Which sentence is grammatically correct?',
+    opts: ['The brain can reorganize itself if it is given the right stimuli.',
+           'The brain can reorganize itself if it is gave the right stimuli.',
+           'The brain can reorganize itself if it is giving the right stimuli.',
+           'The brain can reorganize itself if it is been given the right stimuli.'],
+    correct: 0,
+    explain: 'We use the passive voice "is given" (present simple passive) here. "Gave" is past simple, "giving" is active, "been given" needs "has" before it.' },
+  { id: 'g2', type: 'gram', tag: 'Grammar',
+    q: 'Complete the sentence: "If you ___ your learning with rest, you will retain more."',
+    opts: ['will intersperse',
+           'intersperse',
+           'would intersperse',
+           'interspersed'],
+    correct: 1,
+    explain: 'In first conditional sentences (real possibility), we use present simple in the "if" clause and "will" in the main clause: "If you intersperse… you will retain…"' },
+  { id: 'g3', type: 'gram', tag: 'Grammar',
+    q: 'Choose the correct form: "Geniuses are people who ___ learning as a lifelong process."',
+    opts: ['views',
+           'view',
+           'is viewing',
+           'have view'],
+    correct: 1,
+    explain: '"People" is plural, so the verb takes the plural form "view" (not "views"). "Who" refers to "people", which is plural.' },
+  { id: 'g4', type: 'gram', tag: 'Grammar',
+    q: 'Which sentence uses the past perfect correctly?',
+    opts: ['The rat found the food because it explored the maze before.',
+           'The rat found the food because it had explored the maze before.',
+           'The rat found the food because it has explored the maze before.',
+           'The rat found the food because it was exploring the maze before.'],
+    correct: 1,
+    explain: 'The past perfect "had explored" is needed to show that the exploring happened BEFORE the finding. It places one past action before another past action.' },
+  { id: 'g5', type: 'gram', tag: 'Grammar',
+    q: 'Identify the correct passive transformation: "Scientists have discovered a new learning pattern."',
+    opts: ['A new learning pattern has been discovered by scientists.',
+           'A new learning pattern have been discovered by scientists.',
+           'A new learning pattern is discovered by scientists.',
+           'A new learning pattern was discovered by scientists.'],
+    correct: 0,
+    explain: 'The original is present perfect active ("have discovered"), so the passive is "has been discovered" (present perfect passive). "Has" agrees with the singular subject "pattern".' },
+];
+
+const expressions = [
+  {
+    phrase: '"The brain is not a vessel to be filled, but a fire to be kindled."',
+    example: 'Instead of forcing your child to memorise facts, take them to a science museum. Let them ask questions and explore — the brain is not a vessel to be filled, but a fire to be kindled.',
+    similar: '"Education is not the filling of a pail, but the lighting of a fire." (W.B. Yeats) • "Curiosity is the wick in the candle of learning."'
+  },
+  {
+    phrase: '"Learning is hidden until it is needed."',
+    example: 'You\'ve been watching English movies for years without studying grammar, and suddenly you write a correct sentence naturally. Learning is hidden until it is needed.',
+    similar: '"You don\'t know what you know until you need it." • "Knowledge emerges when the moment requires it."'
+  },
+  {
+    phrase: '"Active recall is the secret weapon of top performers."',
+    example: 'Instead of re-reading your notes before the exam, close the book and try to remember everything. Active recall is the secret weapon of top performers.',
+    similar: '"Testing yourself is the best form of study." • "Retrieval practice beats passive review every time."'
+  },
+  {
+    phrase: '"You have to connect the dots between unrelated fields."',
+    example: 'To innovate at work, study art, history, and biology — not just your industry. You have to connect the dots between unrelated fields to see what nobody else sees.',
+    similar: '"Creativity is just connecting things." (Steve Jobs) • "Cross-pollination of ideas sparks breakthroughs."'
+  },
+  {
+    phrase: '"Rest is not wasted time — it is when the brain consolidates."',
+    example: 'After studying for two hours, take a 20-minute walk without your phone. Rest is not wasted time — it is when the brain consolidates what you\'ve just learned.',
+    similar: '"Sleep is the brain\'s housekeeper." • "Downtime is learning time for the subconscious."'
+  },
+  {
+    phrase: '"Genius is not born; it is built through deliberate patterns."',
+    example: 'Don\'t tell yourself "I\'m just not good at languages" — adopt the right study rhythm instead. Genius is not born; it is built through deliberate patterns.',
+    similar: '"Hard work beats talent when talent doesn\'t work hard." • "The growth mindset transforms ability."'
+  },
+  {
+    phrase: '"Your mind wanders so your brain can wonder."',
+    example: 'When you daydream during a boring meeting, your brain is actually connecting ideas in the background. Your mind wanders so your brain can wonder.',
+    similar: '"Daydreaming is the brain\'s creative mode." • "The default mode network is your idea factory."'
+  },
+  {
+    phrase: '"Cognitive maps are built through exploration, not instruction."',
+    example: 'Give a new employee a project to figure out instead of a 100-page manual. Cognitive maps are built through exploration, not instruction.',
+    similar: '"You don\'t learn to ride a bike by reading about it." • "Experience is the best teacher."'
+  },
+  {
+    phrase: '"Desirable difficulties make learning stick."',
+    example: 'If you\'re struggling to understand a tough chapter, keep going — that struggle is strengthening your neural pathways. Desirable difficulties make learning stick.',
+    similar: '"No pain, no gain — for the brain." • "Easy learning is quickly forgotten."'
+  },
+  {
+    phrase: '"Externalize your thinking to see what you really know."',
+    example: 'Keep a "second brain" notebook or a digital journal where you write down ideas every day. Externalize your thinking to see what you really know.',
+    similar: '"Writing is thinking on paper." • "Your brain is for having ideas, not holding them." (David Allen)'
+  },
+  {
+    phrase: '"The spacing effect beats cramming every time."',
+    example: 'Study 20 minutes a day for a week instead of 3 hours the night before the test. The spacing effect beats cramming every time.',
+    similar: '"Little and often fills the purse." • "Distributed practice outperforms massed practice."'
+  },
+  {
+    phrase: '"Every expert was once a beginner who refused to give up."',
+    example: 'When you feel frustrated learning a new skill, remember that even Mozart had to practise scales. Every expert was once a beginner who refused to give up.',
+    similar: '"The master has failed more times than the beginner has tried." • "Fall seven times, stand up eight."'
+  },
+];
+
+// ===== RENDER =====
+let answers = {};
+
+function renderQuestions() {
+  const container = document.getElementById('questions');
+  questions.forEach((q, idx) => {
+    const div = document.createElement('div');
+    div.className = 'q-block';
+    div.id = 'q-' + idx;
+
+    const tagSpan = `<span class="q-tag tag-${q.type}">${q.tag}</span>`;
+    div.innerHTML = `
+      <div class="q-text">${tagSpan}${idx + 1}. ${q.q}</div>
+      <div class="opts" id="opts-${idx}">
+        ${q.opts.map((o, oi) => `
+          <label id="lbl-${idx}-${oi}" onclick="selectAnswer(${idx}, ${oi})">
+            <input type="radio" name="q-${idx}" value="${oi}">
+            <span>${o}</span>
+          </label>
+        `).join('')}
+      </div>
+      <div class="explanation" id="expl-${idx}"></div>
+    `;
+    container.appendChild(div);
+  });
+  updateScore();
+}
+
+function selectAnswer(qIdx, optIdx) {
+  const q = questions[qIdx];
+  if (answers[qIdx] !== undefined) return; // already answered
+
+  answers[qIdx] = optIdx;
+  const block = document.getElementById('q-' + qIdx);
+  const labels = document.querySelectorAll(`#opts-${qIdx} label`);
+  const expl = document.getElementById('expl-' + qIdx);
+
+  // Disable all
+  labels.forEach(l => l.classList.add('disabled'));
+
+  // Mark chosen
+  labels[optIdx].classList.add('chosen');
+
+  const isCorrect = optIdx === q.correct;
+  if (isCorrect) {
+    block.classList.add('correct');
+    labels[optIdx].classList.add('correct');
+    expl.className = 'explanation show explain-ok';
+    expl.innerHTML = `✅ <strong>Correct!</strong> ${q.explain}`;
+  } else {
+    block.classList.add('wrong');
+    labels[optIdx].classList.add('wrong');
+    labels[q.correct].classList.add('correct');
+    expl.className = 'explanation show explain-ko';
+    expl.innerHTML = `❌ <strong>Not quite.</strong> The correct answer is <strong>"${q.opts[q.correct]}"</strong>.<br>${q.explain}`;
+  }
+
+  updateScore();
+}
+
+function updateScore() {
+  const total = questions.length;
+  const done = Object.keys(answers).length;
+  const correct = Object.entries(answers).filter(([idx, ans]) => ans === questions[+idx].correct).length;
+  const el = document.getElementById('live-score');
+  if (done === total) {
+    const pct = Math.round(correct / total * 100);
+    el.innerHTML = `✅ You answered all ${total} questions. <span class="score-badge ${pct >= 60 ? 'ok' : 'ko'}">${correct}/${total} (${pct}%)</span>`;
+  } else {
+    el.innerHTML = `📝 ${done}/${total} answered — ${correct} correct so far.`;
+  }
+}
+
+function showRecap() {
+  const total = questions.length;
+  const done = Object.keys(answers).length;
+  if (done < total) {
+    alert(`Please answer all ${total} questions first (${done} answered).`);
+    return;
+  }
+
+  const errors = questions.filter((q, i) => answers[i] !== q.correct);
+  const correctCount = total - errors.length;
+  const pct = Math.round(correctCount / total * 100);
+
+  const recapDiv = document.getElementById('recap');
+  const list = document.getElementById('recap-list');
+  const summary = document.getElementById('recap-summary');
+
+  recapDiv.classList.add('show');
+  list.innerHTML = '';
+
+  if (errors.length === 0) {
+    list.innerHTML = '<p style="color:#2e7d32;font-weight:600;">🎉 Perfect score! No mistakes to review.</p>';
+  } else {
+    errors.forEach(e => {
+      const item = document.createElement('div');
+      item.className = 'recap-item';
+      const yourAns = e.opts[answers[questions.indexOf(e)]];
+      const correctAns = e.opts[e.correct];
+      item.innerHTML = `
+        <div class="recap-q">${e.q}</div>
+        <div class="recap-your">❌ Your answer: ${yourAns}</div>
+        <div class="recap-correct">✅ Correct answer: ${correctAns}</div>
+        <div style="font-size:0.9em;color:#555;margin-top:4px;">${e.explain}</div>
+      `;
+      list.appendChild(item);
+    });
+  }
+
+  summary.innerHTML = `You got <strong>${correctCount}/${total}</strong> (${pct}%). ${pct >= 60 ? '👍 Well done!' : '📚 Keep reviewing the mistakes above.'}`;
+
+  document.getElementById('recap-btn').disabled = true;
+  document.getElementById('recap-btn').textContent = '✅ Results displayed above';
+  document.getElementById('live-score').scrollIntoView({ behavior: 'smooth' });
+}
+
+function renderExpressions() {
+  const container = document.getElementById('expr-list');
+  expressions.forEach((e, i) => {
+    const div = document.createElement('div');
+    div.className = 'expr-item';
+    div.innerHTML = `
+      <div class="expr-phrase">${i + 1}. ${e.phrase}</div>
+      <div class="expr-example">💡 ${e.example}</div>
+      <div class="expr-similar"><strong>🔁 Similar expressions:</strong> ${e.similar}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+renderQuestions();
+renderExpressions();
+</script>
+</body>
+</html>

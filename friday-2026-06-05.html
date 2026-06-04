@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathieu's English Masterclass: The Genius Learning Pattern</title>
+    <!-- Google Fonts for Modern Premium Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --primary: #0f172a;
+            --accent-blue: #3b82f6;
+            --accent-teal: #10b981;
+            --accent-gold: #f59e0b;
+            --accent-red: #ef4444;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 8px -1px rgba(15, 23, 42, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* Abstract Top Gradient Blobs for Consulting-Grade Aesthetic */
+        .decorations {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 380px;
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+            z-index: -1;
+            border-bottom: 1px solid var(--border);
+        }
+
+        header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px 24px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .header-left p {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-left p i {
+            color: var(--accent-blue);
+        }
+
+        .badge-date {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        /* Content Layout Sections */
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .section-title i {
+            color: var(--accent-blue);
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+
+        /* Responsive Video Box */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* MCQ Tab Controls */
+        .mcq-navigation {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+            background-color: #f1f5f9;
+        }
+
+        .tab-btn.active {
+            color: white;
+            background-color: var(--accent-blue);
+        }
+
+        .tab-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* MCQ Question Layout */
+        .quiz-panel {
+            display: none;
+        }
+
+        .quiz-panel.active {
+            display: block;
+        }
+
+        .question-block {
+            background-color: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .question-num {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-blue);
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .option-tile {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 14px 18px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .option-tile:hover:not(.disabled) {
+            border-color: var(--accent-blue);
+            background-color: rgba(59, 130, 246, 0.03);
+            transform: translateY(-1px);
+        }
+
+        .option-letter {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #f1f5f9;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        /* Correct/Wrong option statuses */
+        .option-tile.correct {
+            border-color: var(--accent-teal);
+            background-color: rgba(16, 185, 129, 0.06);
+            color: #065f46;
+        }
+
+        .option-tile.correct .option-letter {
+            background-color: var(--accent-teal);
+            color: white;
+        }
+
+        .option-tile.wrong {
+            border-color: var(--accent-red);
+            background-color: rgba(239, 68, 68, 0.06);
+            color: #991b1b;
+        }
+
+        .option-tile.wrong .option-letter {
+            background-color: var(--accent-red);
+            color: white;
+        }
+
+        .option-tile.disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        /* Smart Explanation Reveal */
+        .explanation-card {
+            margin-top: 16px;
+            background-color: #fef3c7;
+            border-left: 4px solid var(--accent-gold);
+            padding: 16px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .explanation-card h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .explanation-card p {
+            font-size: 0.95rem;
+            color: #78350f;
+        }
+
+        /* Interactive Action Buttons */
+        .submit-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1e293b;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+
+        .btn-muted {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+        }
+
+        .btn-muted:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* Results & Score Display */
+        .results-card {
+            display: none;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            animation: slideUp 0.4s ease;
+        }
+
+        .results-summary {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .score-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 8px solid #f1f5f9;
+            border-top-color: var(--accent-teal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .score-circle .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .score-circle .total {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .results-text h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .results-text p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .error-section-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .error-log-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .error-item {
+            background-color: #fff5f5;
+            border-left: 4px solid var(--accent-red);
+            padding: 18px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .error-item h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #991b1b;
+            margin-bottom: 8px;
+        }
+
+        .error-meta {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .error-meta .wrong-val {
+            color: var(--accent-red);
+            font-weight: 600;
+            text-decoration: line-through;
+        }
+
+        .error-meta .correct-val {
+            color: var(--accent-teal);
+            font-weight: 700;
+        }
+
+        .error-correction {
+            font-size: 0.9rem;
+            color: #7f1d1d;
+            background-color: rgba(239, 68, 68, 0.03);
+            padding: 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Useful Expressions Table/Blocks */
+        .expressions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .expressions-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .expression-card {
+            background-color: #fafbfc;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+        }
+
+        .expression-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow);
+            background-color: var(--card-bg);
+        }
+
+        .expr-title {
+            font-size: 1.15rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .expr-title .badge {
+            font-size: 0.75rem;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 50px;
+        }
+
+        .expr-meaning {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .expr-example {
+            background-color: #f1f5f9;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .expr-example strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .expr-example p {
+            color: var(--text-main);
+            font-style: italic;
+        }
+
+        .expr-synonyms {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .expr-synonyms strong {
+            color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="decorations"></div>
+
+    <header>
+        <div class="header-left">
+            <h1>The Genius Learning Pattern</h1>
+            <p><i class="fa-solid fa-graduation-cap"></i> Dynamic Video Lesson &amp; Interactive Quiz for Mathieu</p>
+        </div>
+        <div class="badge-date">
+            Friday, June 5, 2026
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- Video Presentation Section -->
+        <section class="section-card">
+            <h2 class="section-title"><i class="fa-solid fa-circle-play"></i> Step 1: Watch &amp; Learn</h2>
+            <p class="section-desc">Watch this newly published insight video by <strong>EverLearningGrowth</strong> to uncover the core meta-learning patterns of elite minds throughout history.</p>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/COzTfps9ezM" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- MCQ Quiz Section -->
+        <section class="section-card" id="quiz-anchor">
+            <h2 class="section-title"><i class="fa-solid fa-clipboard-question"></i> Step 2: Interactive Comprehension Quiz</h2>
+            <p class="section-desc">Complete all 20 targeted learning checkpoints. Selecting any choice instantly reveals explanations and correction insights.</p>
+            
+            <!-- Category Tabs Navigation -->
+            <nav class="mcq-navigation">
+                <button class="tab-btn active" onclick="switchCategory('comp')" id="tab-comp">
+                    <i class="fa-solid fa-brain"></i> Comprehension (5)
+                </button>
+                <button class="tab-btn" onclick="switchCategory('vocab')" id="tab-vocab">
+                    <i class="fa-solid fa-book-open"></i> Vocabulary (5)
+                </button>
+                <button class="tab-btn" onclick="switchCategory('pron')" id="tab-pron">
+                    <i class="fa-solid fa-volume-high"></i> Pronunciation (5)
+                </button>
+                <button class="tab-btn" onclick="switchCategory('grammar')" id="tab-grammar">
+                    <i class="fa-solid fa-spell-check"></i> Grammar (5)
+                </button>
+            </nav>
+
+            <!-- Quiz Dynamic Content Containers -->
+            <form id="quiz-form">
+                <!-- Comprehension Panel -->
+                <div class="quiz-panel active" id="panel-comp"></div>
+                <!-- Vocabulary Panel -->
+                <div class="quiz-panel" id="panel-vocab"></div>
+                <!-- Pronunciation Panel -->
+                <div class="quiz-panel" id="panel-pron"></div>
+                <!-- Grammar Panel -->
+                <div class="quiz-panel" id="panel-grammar"></div>
+            </form>
+
+            <div class="submit-bar">
+                <p style="color: var(--text-muted); font-size: 0.95rem; font-weight: 500;" id="quiz-progress-text">0 of 20 questions answered</p>
+                <button class="btn btn-primary" onclick="submitQuiz()"><i class="fa-solid fa-circle-check"></i> Finish Lesson &amp; Get Report</button>
+            </div>
+        </section>
+
+        <!-- Dynamic Results & Error Breakdown (Initially Hidden) -->
+        <section class="results-card" id="results-section">
+            <div class="results-summary">
+                <div class="score-circle">
+                    <span class="number" id="final-score-val">0</span>
+                    <span class="total">/ 20</span>
+                </div>
+                <div class="results-text">
+                    <h3 id="result-headline">Excellent Effort!</h3>
+                    <p id="result-subtext">Review your customized correction report below to fix mistakes and consolidate your learning.</p>
+                </div>
+            </div>
+
+            <div class="error-section">
+                <h4 class="error-section-title"><i class="fa-solid fa-triangle-exclamation"></i> Detailed Error Analysis &amp; Correction Guide</h4>
+                <div class="error-log-container" id="error-log">
+                    <!-- Dynamic errors loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Useful Expressions Directory -->
+        <section class="section-card">
+            <h2 class="section-title"><i class="fa-solid fa-quote-left"></i> Step 3: Powerful Expressions From the Lesson</h2>
+            <p class="section-desc">Acquire these 10 elite idioms, verbs, and collocations. Use them to sound natural, precise, and advanced in everyday communication.</p>
+            
+            <div class="expressions-grid">
+                <!-- Expression 1 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">To connect the dots <span class="badge">Idiom</span></div>
+                        <p class="expr-meaning">To bring together different pieces of information, ideas, or observations to understand the whole picture.</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"Once I read about both psychology and graphic design, I connected the dots and started creating much better website layouts."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> Put two and two together, See the big picture, Link ideas.</p>
+                    </div>
+                </div>
+
+                <!-- Expression 2 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">To break down <span class="badge">Phrasal Verb</span></div>
+                        <p class="expr-meaning">To divide a complex concept, system, or list of tasks into smaller, more digestible, and manageable components.</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"If you find computer programming intimidating, try to break it down into tiny, actionable daily tutorials."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> Deconstruct, Dissect, Partition.</p>
+                    </div>
+                </div>
+
+                <!-- Expression 3 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">To pave the way <span class="badge">Idiom</span></div>
+                        <p class="expr-meaning">To establish circumstances or foundations that make it much easier for subsequent developments or people to succeed.</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"Developing strong communication skills during your youth will pave the way for a rapid promotion in your career."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> Lay the groundwork, Set the stage, Clear the path.</p>
+                    </div>
+                </div>
+
+                <!-- Expression 4 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">To keep your brain on its toes <span class="badge">Idiom</span></div>
+                        <p class="expr-meaning">To consistently introduce challenging or unfamiliar tasks to prevent cognitive laziness and retain quick thinking.</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"Instead of using a GPS every day, try navigating by looking at a map to keep your brain on its toes."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> Stay sharp, Stay alert, Challenge your limits.</p>
+                    </div>
+                </div>
+
+                <!-- Expression 5 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">Leaky bucket <span class="badge">Metaphor</span></div>
+                        <p class="expr-meaning">A descriptive term for an inefficient system or cognitive method that is continuously losing resources (such as memory loss over time).</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"Studying biology without doing regular practice tests is like trying to fill a leaky bucket; you lose 90% of the facts."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> Fragile recall, Diminishing memory retention.</p>
+                    </div>
+                </div>
+
+                <!-- Expression 6 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">To hit the sweet spot <span class="badge">Collocation</span></div>
+                        <p class="expr-meaning">To achieve the absolute optimum point of balance, efficiency, difficulty, or performance.</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"A 45-minute workout hits the sweet spot; it's long enough to build strength but short enough to prevent exhaustion."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> Find the Goldilocks zone, Strike the perfect balance.</p>
+                    </div>
+                </div>
+
+                <!-- Expression 7 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">Before you blink an eye <span class="badge">Idiom</span></div>
+                        <p class="expr-meaning">An expression indicating that something occurs within an incredibly brief moment or in a flash.</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"Keep your notebook nearby. Great ideas strike suddenly and can disappear before you blink an eye."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> In the blink of an eye, In a split second, In next to no time.</p>
+                    </div>
+                </div>
+
+                <!-- Expression 8 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">Don't reinvent the wheel <span class="badge">Idiom</span></div>
+                        <p class="expr-meaning">A warning to avoid wasting massive time and effort designing an original plan when highly successful pre-existing methods exist.</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"If you want to create a successful resume, don't reinvent the wheel—just download a classic Harvard template."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> Follow a proven blueprint, Use a standard template.</p>
+                    </div>
+                </div>
+
+                <!-- Expression 9 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">To push your limits <span class="badge">Idiom</span></div>
+                        <p class="expr-meaning">To venture far beyond your standard comfort zone or physical/cognitive capacities in search of self-improvement.</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"During public speaking practice, try addressing larger crowds to push your limits and defeat your stage fright."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> Stretch yourself, Go the extra mile, Outdo yourself.</p>
+                    </div>
+                </div>
+
+                <!-- Expression 10 -->
+                <div class="expression-card">
+                    <div>
+                        <div class="expr-title">To cross-pollinate <span class="badge">Verb</span></div>
+                        <p class="expr-meaning">To combine concepts, techniques, or models from completely independent fields to produce innovative results.</p>
+                    </div>
+                    <div>
+                        <div class="expr-example">
+                            <strong>Everyday Context</strong>
+                            <p>"Great game developers cross-pollinate board game mechanics with cinematic storytelling to build immersive video games."</p>
+                        </div>
+                        <p class="expr-synonyms"><strong>Similar:</strong> Hybridize domains, Bridge distinct fields, Merge perspectives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Interactive Javascript Logic -->
+    <script>
+        const quizData = [
+            // COMPREHENSION
+            {
+                cat: "comp",
+                q: "What is the primary danger of narrow specialization in the modern AI-driven era?",
+                options: [
+                    "It demands excessive financial costs.",
+                    "It makes your skills fragile and highly susceptible to technological obsolescence.",
+                    "It prevents you from reading literature books.",
+                    "It requires constant physical movement."
+                ],
+                correct: 1,
+                explain: "The video stresses that while narrow skills can be learned fast, they are highly vulnerable to AI automation. Elite learners cultivate compound, adaptable intelligence instead."
+            },
+            {
+                cat: "comp",
+                q: "How does the 'Feynman Technique' help reveal gaps in your understanding?",
+                options: [
+                    "By requiring you to explain a complex topic in simple, child-friendly terms.",
+                    "By highlighting random sections of an academic textbook.",
+                    "By forcing you to study in complete isolation for 10 hours.",
+                    "By writing academic essays under intense time constraints."
+                ],
+                correct: 0,
+                explain: "Richard Feynman discovered that trying to teach a subject using simple vocabulary highlights exactly where your comprehension breaks down."
+            },
+            {
+                cat: "comp",
+                q: "How do elite self-directed learners successfully combat the 'forgetting curve'?",
+                options: [
+                    "By drinking coffee immediately before study sessions.",
+                    "By highlighting textbooks using multiple bright colors.",
+                    "By using strategic spaced repetition and active retrieval tasks.",
+                    "By purely memorizing the table of contents."
+                ],
+                correct: 2,
+                explain: "Our brains discard information quickly (the 'leaky bucket' phenomenon). Actively testing ourselves at expanding time intervals locks information into permanent long-term memory."
+            },
+            {
+                cat: "comp",
+                q: "What is 'combinatorial creativity' as showcased by polymaths like Leonardo da Vinci?",
+                options: [
+                    "Painting only with primary colors.",
+                    "Crossing and hybridizing distant, unrelated fields to yield unique innovations.",
+                    "Solving mathematical formulas with complex calculators.",
+                    "Consistently writing notes from right to left."
+                ],
+                correct: 1,
+                explain: "Combinatorial creativity occurs when a thinker connects ideas from distinct domains (like anatomy and art) to create breakthroughs that narrow specialists cannot see."
+            },
+            {
+                cat: "comp",
+                q: "Why is active retrieval (testing yourself) scientifically superior to passive rereading?",
+                options: [
+                    "It demands far less mental energy.",
+                    "It guarantees absolute success on all future tests.",
+                    "It triggers effortful cognitive processing, which deeply strengthens neural retrieval pathways.",
+                    "It allows you to read textbooks twice as fast."
+                ],
+                correct: 2,
+                explain: "Passive review creates an 'illusion of competence' where information feels familiar but isn't integrated. Active recall forces the brain to trace and construct neural pathways."
+            },
+
+            // VOCABULARY
+            {
+                cat: "vocab",
+                q: "In learning science, what does 'compounds' mean when we say 'intelligence compounds'?",
+                options: [
+                    "To blend chemical substances inside a laboratory.",
+                    "To build upon itself, growing and multiplying exponentially over time.",
+                    "To isolate or segment different pieces of information.",
+                    "To gradually diminish in value and strength."
+                ],
+                correct: 1,
+                explain: "In this context, 'compounding' behaves like interest on savings: your existing knowledge framework makes acquiring and linking new skills much faster and easier."
+            },
+            {
+                cat: "vocab",
+                q: "What is the exact definition of a 'polymath'?",
+                options: [
+                    "An individual who strongly dislikes mathematics.",
+                    "A student who specializes intensely in a single computer programming language.",
+                    "A person of wide-ranging knowledge or learning, possessing deep expertise across multiple subjects.",
+                    "A specific computer program used to manage educational databases."
+                ],
+                correct: 2,
+                explain: "A polymath is someone whose interest and deep expertise spans many fields (e.g., Benjamin Franklin, Da Vinci, Feynman)."
+            },
+            {
+                cat: "vocab",
+                q: "If a skill is described as 'fragile', what does it mean?",
+                options: [
+                    "It is highly valuable and protected by copyright.",
+                    "It is extremely historical and dating back centuries.",
+                    "It is easily shattered, made useless, or obsolete by rapid environmental shifts.",
+                    "It requires intense physical training to execute."
+                ],
+                correct: 2,
+                explain: "In learning, 'fragile' refers to highly specific, rigid skills that can be instantly made obsolete by a new AI tool or automation."
+            },
+            {
+                cat: "vocab",
+                q: "What does the term 'metacognition' mean?",
+                options: [
+                    "The process of learning complex programming scripts.",
+                    "Being aware of, analyzing, and controlling one's own thinking and learning processes.",
+                    "The study of historic philosophical systems.",
+                    "Translating a text simultaneously from one language to another."
+                ],
+                correct: 1,
+                explain: "'Metacognition' is literally 'thinking about thinking'—observing how you study, spotting your biases, and altering your strategies."
+            },
+            {
+                cat: "vocab",
+                q: "If an educational resource is referred to as 'obscure', it is...",
+                options: [
+                    "Very famous and widely used worldwide.",
+                    "Hidden, not easily understood, or known only by a few people.",
+                    "Vibrant, colorful, and highly interactive.",
+                    "Proven false by scientific researchers."
+                ],
+                correct: 1,
+                explain: "'Obscure' means hard to find, uncommon, or hidden from general view. Geniuses often find deep insights in obscure archives."
+            },
+
+            // PRONUNCIATION
+            {
+                cat: "pron",
+                q: "Which of the following terms contains a completely silent 'p'?",
+                options: [
+                    "Polymath",
+                    "Practice",
+                    "Psychology",
+                    "Pattern"
+                ],
+                correct: 2,
+                explain: "In the word 'Psychology' (and psycholinguistics, psychiatrist), the initial 'P' is silent. It begins with the /s/ sound."
+            },
+            {
+                cat: "pron",
+                q: "In the word 'genius', where does the primary phonetic stress fall?",
+                options: [
+                    "On the first syllable: **ge**-nius",
+                    "On the second syllable: ge-**nius**",
+                    "Both syllables are stressed equally.",
+                    "There is no stress in this word."
+                ],
+                correct: 0,
+                explain: "'Genius' is pronounced /ˈdʒiː.ni.əs/. The stress is clearly on the first syllable."
+            },
+            {
+                cat: "pron",
+                q: "Which word shares the exact vowel diphthong sound as the 'ei' in 'reign' (/eɪ/)?",
+                options: [
+                    "Height",
+                    "Brain",
+                    "Receive",
+                    "Friend"
+                ],
+                correct: 1,
+                explain: "Both 'reign' and 'brain' share the /eɪ/ sound. 'Height' is pronounced /aɪ/, 'receive' is /iː/, and 'friend' is /e/."
+            },
+            {
+                cat: "pron",
+                q: "How is the first vowel 'o' in the word 'cognitive' pronounced?",
+                options: [
+                    "Like the long 'o' in 'go' (/oʊ/)",
+                    "Like the short 'o' in 'hot' (/ɒ/ or /ɑː/)",
+                    "Like the long 'o' in 'do' (/uː/)",
+                    "It is a silent letter."
+                ],
+                correct: 1,
+                explain: "'Cognitive' is pronounced /ˈkɒɡ.nɪ.tɪv/ (UK) or /ˈkɑːɡ.nə.tɪv/ (US). The 'o' represents a short vowel sound."
+            },
+            {
+                cat: "pron",
+                q: "Which of the following words has a silent letter 'g'?",
+                options: [
+                    "Cognitive",
+                    "Growth",
+                    "Genius",
+                    "Paradigm"
+                ],
+                correct: 3,
+                explain: "In the noun 'paradigm' (/ˈpær.ə.daɪm/), the 'g' is entirely silent. It is pronounced like 'dime' at the end."
+            },
+
+            // GRAMMAR
+            {
+                cat: "grammar",
+                q: "Which sentence accurately uses the Past Perfect tense to show a completed action prior to another past event?",
+                options: [
+                    "Da Vinci has painted the Mona Lisa before he moved to France.",
+                    "Da Vinci had painted the Mona Lisa before he moved to France.",
+                    "Da Vinci was painting the Mona Lisa before he has moved to France.",
+                    "Da Vinci painted the Mona Lisa before he had been moving to France."
+                ],
+                correct: 1,
+                explain: "We use 'had painted' (Past Perfect) to make it clear that the painting action was completed before his relocation to France."
+            },
+            {
+                cat: "grammar",
+                q: "In the phrase 'started climbing', what grammatical form does 'climbing' represent?",
+                options: [
+                    "A gerund acting as the object of the verb.",
+                    "A past participle describing the state.",
+                    "An auxiliary verb indicating progression.",
+                    "An adjective modifying the word 'started'."
+                ],
+                correct: 0,
+                explain: "'Climbing' acts as a noun (gerund) here, functioning as the direct object of the main verb 'started'."
+            },
+            {
+                cat: "grammar",
+                q: "What is the function of the contraction 'll' in 'I'll break it down'?",
+                options: [
+                    "It shows past possession.",
+                    "It contracts 'will' to express future determination, promise, or intent.",
+                    "It is a plural noun suffix.",
+                    "It indicates a passive action."
+                ],
+                correct: 1,
+                explain: "'I'll' is the standard contraction for 'I will', used to express plans or immediate decisions."
+            },
+            {
+                cat: "grammar",
+                q: "In 'the rest of us are studying', what type of pronoun is the word 'us'?",
+                options: [
+                    "Subject Pronoun",
+                    "Object Pronoun",
+                    "Possessive Pronoun",
+                    "Reflexive Pronoun"
+                ],
+                correct: 1,
+                explain: "'Us' is an object pronoun used here as the object of the preposition 'of'."
+            },
+            {
+                cat: "grammar",
+                q: "Identify the grammatically correct inverted sentence used to add poetic emphasis:",
+                options: [
+                    "Seldom we do realize how much our memory forgets.",
+                    "Seldom do we realize how much our memory forgets.",
+                    "Seldom we realized how much did our memory forget.",
+                    "Seldom did we realized how much our memory forgets."
+                ],
+                correct: 1,
+                explain: "After negative/restrictive adverbs like 'seldom', the auxiliary verb must precede the subject (Inversion): 'Seldom do we realize...'."
+            }
+        ];
+
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        // Load Quiz dynamically
+        function loadQuiz() {
+            const panels = {
+                comp: document.getElementById('panel-comp'),
+                vocab: document.getElementById('panel-vocab'),
+                pron: document.getElementById('panel-pron'),
+                grammar: document.getElementById('panel-grammar')
+            };
+
+            quizData.forEach((item, index) => {
+                const qBlock = document.createElement('div');
+                qBlock.className = 'question-block';
+                qBlock.id = `q-block-${index}`;
+
+                // Label index inside category
+                const indexInCat = quizData.filter((x, i) => x.cat === item.cat && i < index).length + 1;
+
+                qBlock.innerHTML = `
+                    <div class="question-header">
+                        <span class="question-num">Checkpoint ${indexInCat} of 5</span>
+                    </div>
+                    <div class="question-text">${item.q}</div>
+                    <div class="options-grid">
+                        ${item.options.map((option, oIndex) => `
+                            <div class="option-tile" onclick="answerQuestion(${index}, ${oIndex}, this)">
+                                <span class="option-letter">${String.fromCharCode(65 + oIndex)}</span>
+                                <span>${option}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="explanation-card" id="explain-${index}">
+                        <h4><i class="fa-solid fa-circle-info"></i> Learning Insight</h4>
+                        <p>${item.explain}</p>
+                    </div>
+                `;
+
+                panels[item.cat].appendChild(qBlock);
+            });
+        }
+
+        // Handle answer selection
+        function answerQuestion(qIndex, choiceIndex, element) {
+            if (userAnswers[qIndex] !== null) return; // Prevent changing choice
+
+            userAnswers[qIndex] = choiceIndex;
+            const item = quizData[qIndex];
+            const parent = element.parentElement;
+            const tiles = parent.getElementsByClassName('option-tile');
+
+            // Apply styling
+            for (let i = 0; i < tiles.length; i++) {
+                tiles[i].classList.add('disabled');
+                if (i === item.correct) {
+                    tiles[i].classList.add('correct');
+                }
+                if (i === choiceIndex && choiceIndex !== item.correct) {
+                    tiles[i].classList.add('wrong');
+                }
+            }
+
+            // Reveal explanation
+            document.getElementById(`explain-${qIndex}`).style.display = 'block';
+
+            // Update Progress Counter
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const answeredCount = userAnswers.filter(x => x !== null).length;
+            document.getElementById('quiz-progress-text').innerText = `${answeredCount} of 20 questions answered`;
+        }
+
+        // Switch Category Tabs
+        function switchCategory(cat) {
+            // Update tabs active state
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`tab-${cat}`).classList.add('active');
+
+            // Update visible panel
+            document.querySelectorAll('.quiz-panel').forEach(panel => panel.classList.remove('active'));
+            document.getElementById(`panel-${cat}`).classList.add('active');
+        }
+
+        // Submit Quiz & Generate Report Card
+        function submitQuiz() {
+            const unanswered = userAnswers.filter(x => x === null).length;
+            if (unanswered > 0) {
+                if (!confirm(`You have not answered ${unanswered} question(s) yet. Do you want to submit the quiz anyway?`)) {
+                    return;
+                }
+            }
+
+            let score = 0;
+            const errorLog = document.getElementById('error-log');
+            errorLog.innerHTML = ''; // Clear previous errors
+
+            quizData.forEach((item, index) => {
+                const choice = userAnswers[index];
+                if (choice === item.correct) {
+                    score++;
+                } else {
+                    // Create error reporting item
+                    const errBlock = document.createElement('div');
+                    errBlock.className = 'error-item';
+
+                    const userValText = choice !== null ? item.options[choice] : "No response provided";
+                    const correctValText = item.options[item.correct];
+
+                    // Map category name for presentation
+                    let categoryLabel = item.cat.toUpperCase();
+                    if(categoryLabel === "COMP") categoryLabel = "COMPREHENSION";
+                    if(categoryLabel === "PRON") categoryLabel = "PRONUNCIATION";
+
+                    errBlock.innerHTML = `
+                        <h5>[${categoryLabel}] Question ${index + 1}</h5>
+                        <p class="error-meta" style="margin-bottom: 6px;"><strong>Q:</strong> ${item.q}</p>
+                        <div class="error-meta">
+                            <span class="wrong-val">✗ Your answer: ${userValText}</span> &nbsp;&bull;&nbsp; 
+                            <span class="correct-val">✓ Correct: ${correctValText}</span>
+                        </div>
+                        <div class="error-correction">
+                            <strong>Correction Guide:</strong> ${item.explain}
+                        </div>
+                    `;
+                    errorLog.appendChild(errBlock);
+                }
+            });
+
+            // If zero errors
+            if (score === 20) {
+                errorLog.innerHTML = `
+                    <div style="text-align: center; padding: 24px; color: var(--accent-teal);">
+                        <i class="fa-solid fa-trophy" style="font-size: 3rem; margin-bottom: 12px;"></i>
+                        <h4 style="font-size: 1.3rem; font-weight: 700;">Flawless Score, Mathieu!</h4>
+                        <p style="color: var(--text-muted);">You did not make a single mistake. Your meta-learning pathways are functioning perfectly!</p>
+                    </div>
+                `;
+            }
+
+            // Render Results Card
+            document.getElementById('final-score-val').innerText = score;
+            const headline = document.getElementById('result-headline');
+            if (score >= 17) {
+                headline.innerText = "Excellent Job, Mathieu!";
+            } else if (score >= 12) {
+                headline.innerText = "Good effort, Mathieu!";
+            } else {
+                headline.innerText = "Keep practicing, Mathieu!";
+            }
+
+            document.getElementById('results-section').style.display = 'block';
+            document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize platform
+        window.onload = loadQuiz;
+    </script>
+</body>
+</html>
