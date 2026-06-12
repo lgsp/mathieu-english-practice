@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +59,7 @@
                 </div>
                 <div>
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Overall Progress</h4>
-                    <p id="progress-subtitle" class="text-sm font-semibold text-slate-700">0 of 2 Lessons Completed</p>
+                    <p id="progress-subtitle" class="text-sm font-semibold text-slate-700">0 of 3 Lessons Completed</p>
                 </div>
             </div>
         </div>
@@ -71,7 +72,7 @@
                 <div class="text-blue-600 bg-blue-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <div class="text-2xl font-extrabold text-slate-800">2</div>
+                <div class="text-2xl font-extrabold text-slate-800">3</div>
                 <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Total Lessons</div>
             </div>
             
@@ -79,7 +80,7 @@
                 <div class="text-teal-600 bg-teal-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
                     <i class="fa-solid fa-circle-question"></i>
                 </div>
-                <div class="text-2xl font-extrabold text-slate-800">40</div>
+                <div class="text-2xl font-extrabold text-slate-800">60</div>
                 <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Practice Items</div>
             </div>
 
@@ -87,7 +88,7 @@
                 <div class="text-amber-600 bg-amber-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
                     <i class="fa-solid fa-comment-dots"></i>
                 </div>
-                <div class="text-2xl font-extrabold text-slate-800">15</div>
+                <div class="text-2xl font-extrabold text-slate-800">25</div>
                 <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Key Expressions</div>
             </div>
 
@@ -104,49 +105,40 @@
             <i class="fa-solid fa-calendar-days text-blue-500"></i> Your Friday Lessons
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Changed layout to grid-cols-1 md:grid-cols-2 lg:grid-cols-3 to support 3 cards perfectly -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- LESSON 1 CARD: May 28, 2026 -->
             <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <!-- Visual Header with mock thumbnail representation -->
                     <div class="relative bg-slate-900 h-48 flex items-center justify-center overflow-hidden">
                         <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://img.youtube.com/vi/dCGkt7_0Qpo/maxresdefault.jpg');"></div>
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                        
                         <div class="absolute top-4 left-4">
                             <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Economy & Satire</span>
                         </div>
-                        
-                        <!-- Status Badge (Interactive) -->
                         <div class="absolute top-4 right-4" id="badge-l1">
                             <span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700">
                                 <i class="fa-regular fa-circle"></i> Incomplete
                             </span>
                         </div>
-
                         <div class="absolute bottom-4 left-4 right-4">
                             <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Lesson 1</span>
                             <h3 class="text-white font-bold text-lg leading-snug mt-1">The Great American Bankruptcy</h3>
                         </div>
                     </div>
-
-                    <!-- Lesson Metadata & Goals -->
                     <div class="p-6">
                         <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4">
                             <i class="fa-solid fa-calendar"></i> Friday, May 28, 2026
                             <span class="text-slate-300">•</span>
                             <i class="fa-solid fa-clock"></i> 20-Question Quiz
                         </div>
-                        
                         <p class="text-slate-500 text-sm mb-6 leading-relaxed">
                             Analyze political satire, tax metaphors, and macroeconomic terms through Lego Records' viral music video. Expand your business, grammatical, and pronunciation skills.
                         </p>
-
-                        <!-- Highlights list -->
                         <div class="space-y-2 border-t border-slate-100 pt-4 mb-2">
                             <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Learn expressions like <span class="font-mono text-blue-600">"give or take"</span> &amp; <span class="font-mono text-blue-600">"pink slips"</span>
+                                <i class="fa-solid fa-check text-emerald-500"></i> Learn expressions like <span class="font-mono text-blue-600">"give or take"</span>
                             </div>
                             <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
                                 <i class="fa-solid fa-check text-emerald-500"></i> Practice past tenses, gerunds, and purpose clauses
@@ -154,8 +146,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Bottom controls -->
                 <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between gap-4">
                     <label class="flex items-center gap-2 cursor-pointer select-none">
                         <input type="checkbox" id="check-l1" onchange="toggleLessonStatus('l1')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
@@ -170,47 +160,96 @@
             <!-- LESSON 2 CARD: June 5, 2026 -->
             <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <!-- Visual Header with mock thumbnail representation -->
                     <div class="relative bg-slate-900 h-48 flex items-center justify-center overflow-hidden">
                         <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://img.youtube.com/vi/COzTfps9ezM/maxresdefault.jpg');"></div>
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                        
                         <div class="absolute top-4 left-4">
                             <span class="bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Cognitive Science</span>
                         </div>
-                        
-                        <!-- Status Badge (Interactive) -->
                         <div class="absolute top-4 right-4" id="badge-l2">
                             <span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700">
                                 <i class="fa-regular fa-circle"></i> Incomplete
                             </span>
                         </div>
-
                         <div class="absolute bottom-4 left-4 right-4">
                             <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Lesson 2</span>
                             <h3 class="text-white font-bold text-lg leading-snug mt-1">The Genius Learning Pattern</h3>
                         </div>
                     </div>
-
-                    <!-- Lesson Metadata & Goals -->
                     <div class="p-6">
                         <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4">
                             <i class="fa-solid fa-calendar"></i> Friday, June 5, 2026
                             <span class="text-slate-300">•</span>
                             <i class="fa-solid fa-clock"></i> 20-Question Quiz
                         </div>
-                        
                         <p class="text-slate-500 text-sm mb-6 leading-relaxed">
                             Discover how polymaths like Leonardo da Vinci and Richard Feynman mastered cross-pollination. Learn active recall strategies and avoid the "leaky bucket" trap.
+                        </p>
+                        <div class="space-y-2 border-t border-slate-100 pt-4 mb-2">
+                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
+                                <i class="fa-solid fa-check text-emerald-500"></i> Master verbs like <span class="font-mono text-blue-600">"cross-pollinate"</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
+                                <i class="fa-solid fa-check text-emerald-500"></i> Master silent letters and grammatical inversions
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer select-none">
+                        <input type="checkbox" id="check-l2" onchange="toggleLessonStatus('l2')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
+                        <span class="text-xs font-bold text-slate-500">Mark Completed</span>
+                    </label>
+                    <a href="friday-2026-06-05.html" target="_blank" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
+                        Start Lesson <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ADDED: LESSON 3 CARD (TODAY'S LESSON) -->
+            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <!-- Visual Header with Laozi thumbnail representation -->
+                    <div class="relative bg-slate-900 h-48 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://img.youtube.com/vi/NCt8qWil0sM/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+                        
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Philosophy & Wisdom</span>
+                        </div>
+                        
+                        <!-- Status Badge (Interactive) -->
+                        <div class="absolute top-4 right-4" id="badge-l3">
+                            <span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700">
+                                <i class="fa-regular fa-circle"></i> Incomplete
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Lesson 3 • TODAY</span>
+                            <h3 class="text-white font-bold text-lg leading-snug mt-1">Laozi & The Flowing Void</h3>
+                        </div>
+                    </div>
+
+                    <!-- Lesson Metadata & Goals -->
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4">
+                            <i class="fa-solid fa-calendar"></i> Friday, June 12, 2026
+                            <span class="text-slate-300">•</span>
+                            <i class="fa-solid fa-clock"></i> 20-Question Quiz
+                        </div>
+                        
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                            Explore Eastern philosophy, Taoist concepts like <i>Wu Wei</i>, and advanced metaphors of water. Enhance structural fluency, phonetic rules, and passive sentence architectures.
                         </p>
 
                         <!-- Highlights list -->
                         <div class="space-y-2 border-t border-slate-100 pt-4 mb-2">
                             <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Master verbs like <span class="font-mono text-blue-600">"cross-pollinate"</span> &amp; <span class="font-mono text-blue-600">"break down"</span>
+                                <i class="fa-solid fa-check text-emerald-500"></i> Idioms: <span class="font-mono text-blue-600">"let the dust settle"</span> &amp; <span class="font-mono text-blue-600">"carve a path"</span>
                             </div>
                             <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Master silent letters (Psychology, Paradigm) and inversions
+                                <i class="fa-solid fa-check text-emerald-500"></i> Study double comparatives and phonetic sound links (/aʊ/)
                             </div>
                         </div>
                     </div>
@@ -219,10 +258,10 @@
                 <!-- Bottom controls -->
                 <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between gap-4">
                     <label class="flex items-center gap-2 cursor-pointer select-none">
-                        <input type="checkbox" id="check-l2" onchange="toggleLessonStatus('l2')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
+                        <input type="checkbox" id="check-l3" onchange="toggleLessonStatus('l3')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
                         <span class="text-xs font-bold text-slate-500">Mark Completed</span>
                     </label>
-                    <a href="friday-2026-06-05.html" target="_blank" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
+                    <a href="friday-2026-06-12.html" target="_blank" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
                         Start Lesson <i class="fa-solid fa-chevron-right"></i>
                     </a>
                 </div>
@@ -242,15 +281,15 @@
         </div>
     </footer>
 
-    <!-- Interactive script to remember completion status -->
+    <!-- Script updated to manage 3 lessons dynamic state -->
     <script>
-        // Unique key for tracking lessons
         const storageKey = 'mathieu_lessons_state_2026';
 
-        // Load saved state or default
+        // Updated default state to include l3
         let state = {
             l1: false,
-            l2: false
+            l2: false,
+            l3: false
         };
 
         function loadState() {
@@ -273,48 +312,40 @@
 
         function updateUI() {
             let completedCount = 0;
-            
-            // Handle Lesson 1
-            const checkL1 = document.getElementById('check-l1');
-            const badgeL1 = document.getElementById('badge-l1');
-            checkL1.checked = state.l1;
-            if (state.l1) {
-                completedCount++;
-                badgeL1.innerHTML = `<span class="bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-circle-check"></i> Completed</span>`;
-            } else {
-                badgeL1.innerHTML = `<span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700"><i class="fa-regular fa-circle"></i> Incomplete</span>`;
-            }
+            const lessonsList = ['l1', 'l2', 'l3'];
 
-            // Handle Lesson 2
-            const checkL2 = document.getElementById('check-l2');
-            const badgeL2 = document.getElementById('badge-l2');
-            checkL2.checked = state.l2;
-            if (state.l2) {
-                completedCount++;
-                badgeL2.innerHTML = `<span class="bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-circle-check"></i> Completed</span>`;
-            } else {
-                badgeL2.innerHTML = `<span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700"><i class="fa-regular fa-circle"></i> Incomplete</span>`;
-            }
+            lessonsList.forEach(id => {
+                const checkBox = document.getElementById(`check-${id}`);
+                const badge = document.getElementById(`badge-${id}`);
+                
+                if (checkBox && badge) {
+                    checkBox.checked = state[id] || false;
+                    if (state[id]) {
+                        completedCount++;
+                        badge.innerHTML = `<span class="bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-circle-check"></i> Completed</span>`;
+                    } else {
+                        badge.innerHTML = `<span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700"><i class="fa-regular fa-circle"></i> Incomplete</span>`;
+                    }
+                }
+            });
 
-            // Update Circle Progress and Score Indicators
-            const totalLessons = 2;
+            // Dynamic progress calculation updated for 3 lessons
+            const totalLessons = 3;
             const percent = Math.round((completedCount / totalLessons) * 100);
             
-            // Update Text
             document.getElementById('progress-percent').innerText = `${percent}%`;
             document.getElementById('progress-subtitle').innerText = `${completedCount} of ${totalLessons} Lessons Completed`;
             
-            // Update Circle stroke
             const circle = document.getElementById('progress-circle');
             circle.setAttribute('stroke-dasharray', `${percent}, 100`);
 
-            // Update XP (100 XP per completed lesson)
+            // 100 XP awarded per completed lesson (Max 300 XP)
             document.getElementById('xp-display').innerText = `${completedCount * 100} XP`;
         }
 
-        // Initialize state check on window load
         window.onload = loadState;
     </script>
 
 </body>
 </html>
+
