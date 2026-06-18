@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning App - World Cup & Politics</title>
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --secondary-color: #d97706;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --bg-light: #f8fafc;
+            --text-dark: #0f172a;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: -0.05em;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .category-header {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.6rem 1rem;
+            border-left: 5px solid var(--secondary-color);
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+            border-radius: 0 8px 8px 0;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .question-box {
+            background: var(--bg-light);
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .question-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .option-btn {
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            text-align: left;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-btn:hover:not(.disabled) {
+            border-color: var(--secondary-color);
+            background-color: #fffbeb;
+        }
+
+        .option-btn.correct {
+            background-color: #d1fae5 !important;
+            border-color: var(--success-color) !important;
+            color: #065f46;
+            font-weight: bold;
+        }
+
+        .option-btn.wrong {
+            background-color: #fee2e2 !important;
+            border-color: var(--danger-color) !important;
+            color: #991b1b;
+        }
+
+        .option-btn.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .feedback-box {
+            margin-top: 0.8rem;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            color: #1e40af;
+            display: none;
+            font-size: 0.9 mir;
+        }
+
+        .action-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 1.5rem;
+        }
+
+        .action-btn:hover {
+            background-color: #334155;
+        }
+
+        #results-container {
+            display: none;
+        }
+
+        .score-board {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .error-log {
+            border-left: 4px solid var(--danger-color);
+            background: #fff5f5;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .expression-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .expression-head {
+            font-size: 1.15rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .expression-details {
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
+        }
+
+        .expression-example {
+            background: #f8fafc;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-family: monospace;
+            border-left: 3px solid #cbd5e1;
+            margin-top: 0.3rem;
+        }
+
+        .lyrics-grid {
+            display: grid;
+            grid-template-cols: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .lyrics-column h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.3rem;
+        }
+
+        .lyrics-line {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            min-height: 1.5rem;
+        }
+
+        .lyrics-english {
+            font-style: italic;
+        }
+
+        .lyrics-french {
+            color: #475569;
+        }
+
+        @media (max-width: 640px) {
+            .lyrics-grid {
+                grid-template-cols: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Advanced English Interactive Module</h1>
+        <p>Lesson Plan: June 18, 2026 — World Cup & Geopolitical Satire</p>
+    </header>
+
+    <main>
+        <!-- Video Section -->
+        <div class="card">
+            <h2>1. Video Analysis</h2>
+            <p>Watch the LEGO animated presentation covering the viral World Cup 2026 controversy regarding diplomatic friction, FIFA guidelines, and the symbolic "locked door" incident.</p>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/QtkUl4BvKIk" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="card">
+            <h2>2. Evaluation Multiple Choice Quiz</h2>
+            <p>Select the most accurate response for each technical question. Correct keys and grammatical/structural breakdowns manifest instantly.</p>
+            <div id="quiz-mount"></div>
+            <button class="action-btn" onclick="evaluateQuiz()">Submit Answers & Generate Diagnostics</button>
+        </div>
+
+        <!-- Diagnostic Report -->
+        <div class="card" id="results-container">
+            <h2>3. Diagnostic Report & Corrections</h2>
+            <div class="score-board" id="score-text"></div>
+            <div id="error-mount"></div>
+        </div>
+
+        <!-- Vocabulary Expressions -->
+        <div class="card">
+            <h2>4. Idiomatic Syntagms & Expressions</h2>
+            <p>Contextualized language structures derived from the structural semantics of the geopolitical report:</p>
+            
+            <div id="expressions-mount"></div>
+        </div>
+
+        <!-- Lyrics & Translation -->
+        <div class="card">
+            <h2>5. Transcript & Translation Matrix</h2>
+            <p>Review the semantic links between the spoken artistic track and its structural French equivalent.</p>
+            
+            <div class="lyrics-grid" id="lyrics-mount"></div>
+        </div>
+    </main>
+
+    <script>
+        const quizDatabase = [
+            // COMPREHENSION
+            {
+                cat: "Comprehension Proficiency",
+                q: "What serves as the primary geopolitical backdrop for the viral LEGO animation?",
+                o: ["The Olympic Games structural financial deficit", "The World Cup 2026 diplomatic and athletic friction", "A maritime territorial border enforcement dispute", "Unilateral sanctions targeting trade routes"],
+                c: 1,
+                e: "The video specifically documents structural tension surrounding political standoffs, FIFA compliance, and team lockouts during the World Cup 2026 cycle."
+            },
+            {
+                cat: "Comprehension Proficiency",
+                q: "What does the 'locked door' symbolize throughout the narrative?",
+                o: ["An unresolved cybersecurity breach at administrative hubs", "The denial of access and breakdown of diplomatic dialogue", "A structural failure within stadium architectures", "Strict quarantine rules enforced on foreign athletes"],
+                c: 1,
+                e: "A locked door serves as a direct conceptual metaphor for diplomatic stalemates, administrative gridlock, and the exclusion of nations from global athletic systems."
+            },
+            {
+                cat: "Comprehension Proficiency",
+                q: "Which authority figures or bodies are directly parodied in the rap choreography?",
+                o: ["The International Monetary Fund leadership", "The UN Security Council delegates exclusively", "Trump administrative symbols alongside FIFA executives", "The European Central Bank internal committee"],
+                c: 2,
+                e: "The video focuses its satirical lens on the intersection of Donald Trump's political interventions and FIFA's complex organizational regulations."
+            },
+            {
+                cat: "Comprehension Proficiency",
+                q: "How does the narrative characterize FIFA's institutional response?",
+                o: ["As completely passive and uninvolved", "Caught between corporate neutral policies and political pressure", "Highly aggressive in imposing immediate financial penalties", "Abolishing athletic visa protocols permanently"],
+                c: 1,
+                e: "The narrative emphasizes how global sports networks struggle to balance rigid institutional rules with real-world political pressure from powerful host nations."
+            },
+            {
+                cat: "Comprehension Proficiency",
+                q: "What tone is consistently utilized by the channel 'The Story Of Things' to convey this dispute?",
+                o: ["Academic historical neutrality", "Highly satirical hip-hop lyricism backed by LEGO visual motifs", "Tragic journalistic melodrama", "Corporate promotional propaganda"],
+                c: 1,
+                e: "The channel employs a fast-paced rap format alongside dynamic LEGO animations to deliver complex geopolitical criticism in an engaging way."
+            },
+
+            // PRONUNCIATION
+            {
+                cat: "Phonetics & Pronunciation",
+                q: "Which word contains a completely silent vowel sound when spoken naturally?",
+                o: ["Dispute", "Corporate", "Sovereign", "Enforce"],
+                c: 2,
+                e: "In 'sovereign', the 'g' is completely silent, and the vowel reduce creates a pronunciation resembling /ˈsɒvrɪn/."
+            },
+            {
+                cat: "Phonetics & Pronunciation",
+                q: "Identify the word from the transcript where the combination 'ch' is pronounced as /k/ rather than /tʃ/:",
+                o: ["Choreography", "Championship", "Chide", "Chamber"],
+                c: 0,
+                e: "'Choreography' stems from Greek origins, changing the standard 'ch' affricate sound into a hard velar plosive /k/ sound."
+            },
+            {
+                cat: "Phonetics & Pronunciation",
+                q: "Where does the primary syllabic stress fall in the word 'Geopolitical'?",
+                o: ["Geo-political", "Geopo-LIT-ical", "GE-opolitical", "Geopolit-I-cal"],
+                c: 1,
+                e: "The primary phonetic emphasis falls squarely on the antepenultimate syllable: /ˌdʒiːoʊpəˈlɪtɪkəl/."
+            },
+            {
+                cat: "Phonetics & Pronunciation",
+                q: "Which of the following terms exhibits an identical vowel sound to the word 'Door' (/ɔː/)?",
+                o: ["Sore", "Poor", "Sour", "Our"],
+                c: 0,
+                e: "'Door' and 'Sore' utilize the identical long open-mid back rounded vowel sound /ɔː/ in standard pronunciation models."
+            },
+            {
+                cat: "Phonetics & Pronunciation",
+                q: "In fast conversational English, what happens to the explosive /d/ sound in 'locked door'?",
+                o: ["It is transformed into an /s/ sound", "It merges into a geminate consonant block, creating a single held /dː/", "It changes into a nasal vowel shift", "It becomes a fully trilled rhotic sound"],
+                c: 1,
+                e: "Due to phonetic assimilation, the final /t/ of 'locked' and the initial /d/ of 'door' fuse into a single prolonged alveolar stop."
+            },
+
+            // VOCABULARY
+            {
+                cat: "Lexical & Vocabulary Mastery",
+                q: "What is the true operational definition of the word 'Stalemate' as applied in the video?",
+                o: ["A lucrative trade agreement signed between allies", "A situation in which no further progress is possible for either side", "An open declaration of physical warfare", "A digital data transfer protocol"],
+                c: 1,
+                e: "A stalemate refers to an structural deadlock or impasse where neither party can claim victory or advance safely."
+            },
+            {
+                cat: "Lexical & Vocabulary Mastery",
+                q: "What does the verb 'To Flout' indicate when discussing FIFA regulations?",
+                o: ["To obey rules with meticulous dedication", "To openly disregard or mock a law or rule hypocritically", "To write a new legislative amendment", "To calculate financial overhead costs"],
+                c: 1,
+                e: "To flout means to openly refuse to obey or show respect for official rules, mandates, or conventions."
+            },
+            {
+                cat: "Lexical & Vocabulary Mastery",
+                q: "What is the meaning of 'Viral' in 'Viral LEGO Rap'?",
+                o: ["Infected with a dangerous electronic trojan code", "Circulating rapidly and widely from one internet user to another", "Restricted to official government servers", "Outdated and historically irrelevant"],
+                c: 1,
+                e: "An item goes viral online when it achieves exponential distribution via peer sharing across global social media ecosystems."
+            },
+            {
+                cat: "Lexical & Vocabulary Mastery",
+                q: "Choose the correct substitute for the term 'Friction' within a political context:",
+                o: ["Harmony", "Fascination", "Animosity/Tension", "Cooperation"],
+                c: 2,
+                e: "Friction refers metaphorically to structural discord, conflict, or animosity developing between disagreeing parties."
+            },
+            {
+                cat: "Lexical & Vocabulary Mastery",
+                q: "What does 'To Lock Out' mean?",
+                o: ["To invite someone into a safe space", "To deny access to someone by locking the entryways", "To fix a broken mechanism", "To change passwords frequently"],
+                c: 1,
+                e: "To lock out involves physically or systematically blocking a party from entering an area or participating in an event."
+            },
+
+            // GRAMMAR
+            {
+                cat: "Grammatical Structures",
+                q: "Identify the structural error or specific tense in: 'Had the doors been unlocked, the crisis would have been averted.'",
+                o: ["First Conditional layout", "Inverted Third Conditional configuration", "Present Perfect continuous matrix", "Imperative command structure"],
+                c: 1,
+                e: "This shows an inverted third conditional structure. The word 'if' is omitted, and 'had' shifts forward to express a past hypothesis that didn't occur."
+            },
+            {
+                cat: "Grammatical Structures",
+                q: "In the sentence 'FIFA objects to nations interfering', what form is 'interfering'?",
+                o: ["A bare infinitive verb template", "A gerund serving as the object of a prepositional phrase", "A past participle modifier", "A relative adjective descriptor"],
+                c: 1,
+                e: "The word 'interfering' operates as a gerund following the prepositional construction implied by the verb pattern."
+            },
+            {
+                cat: "Grammatical Structures",
+                q: "Which modal verb best conveys an absolute institutional requirement under FIFA statutes?",
+                o: ["Might", "Must", "Could", "May"],
+                c: 1,
+                e: "'Must' denotes strict obligation or an unyielding institutional mandate within regulatory handbooks."
+            },
+            {
+                cat: "Grammatical Structures",
+                q: "What is the passive voice alternative to: 'Trump signed the Executive Order'?",
+                o: ["The Executive Order was signed by Trump", "Trump has been signing the Executive Order", "The Executive Order had signed Trump", "Signing the order was done by Trump"],
+                c: 0,
+                e: "The simple past passive is constructed using 'was/were' + the past participle ('was signed'), shifting structural focus to the object."
+            },
+            {
+                cat: "Grammatical Structures",
+                q: "Choose the correct syntax to fill the gap: 'The team was prevented _______ entering the tournament grounds.'",
+                o: ["to", "from", "against", "for"],
+                c: 1,
+                e: "The verb 'prevent' requires the dependent preposition 'from' followed systematically by a gerund construction (*prevent someone from doing something*)."
+            }
+        ];
+
+        const expressionsData = [
+            { exp: "To hit a brick wall", mean: "To encounter a sudden, insurmountable obstacle while trying to progress.", ex: "Negotiations between the two logistics companies hit a brick wall over trade tariffs.", syn: "To reach a dead end / To stall" },
+            { exp: "To call the shots", mean: "To be the person who controls a situation or makes all the important decisions.", ex: "In this global athletic federation, the major broadcast sponsors call the shots.", syn: "To pull the strings / To be in the driver's seat" },
+            { exp: "Behind closed doors", mean: "In private, away from the public eye or media cameras.", ex: "The committee finalized the selection of the host city behind closed doors.", syn: "In secret / Off the record" },
+            { exp: "To face the music", mean: "To accept the unpleasant consequences of one's actions or policy failures.", ex: "After flouting international safety rules, the federation had to face the music.", syn: "To take the wrap / To bear the brunt" },
+            { exp: "To play by the rules", mean: "To follow established laws, guidelines, or codes of conduct strictly.", ex: "If nations wish to participate in global tournaments, they must play by the rules.", syn: "To go by the book / To conform" },
+            { exp: "A political hot potato", mean: "An issue that is highly controversial and difficult to handle.", ex: "Visa entry requirements for international athletes became a political hot potato.", syn: "A minefield / A touchy subject" },
+            { exp: "To break the deadlock", mean: "To find a solution to a stalemate between two opposing factions.", ex: "The diplomatic envoy stepped in to break the deadlock before the opening match.", syn: "To resolve an impasse / To clear the air" },
+            { exp: "To standard to your guns", mean: "To maintain one's stance or opinions despite intense criticism.", ex: "Despite administrative threats, the national coach stood to his guns.", syn: "To hold your ground / To remain firm" },
+            { exp: "To open a can of worms", mean: "To introduce a complicated situation that will cause lots of new problems.", ex: "Investigating financial accounts opened a whole new can of worms for the board.", syn: "To stir up trouble / Pandora's box" },
+            { exp: "At the end of the day", mean: "Something said to emphasize the most important fact of a situation.", ex: "At the end of the day, sports should unify people rather than divide them.", syn: "Ultimately / When all is said and done" }
+        ];
+
+        const lyricsData = [
+            { en: "Welcome to the world stage, the year is twenty-six,", fr: "Bienvenue sur la scène mondiale, nous sommes en vingt-six," },
+            { en: "Where athletic dreams clash hard with politics.", fr: "Où les rêves athlétiques se heurtent violemment à la politique." },
+            { en: "The stadium gates are locked, the rosters are on hold,", fr: "Les portes du stade sont closes, les effectifs en suspens," },
+            { en: "A geopolitical drama unfolding bright and bold.", fr: "Un drame géopolitique se déroulant de façon éclatante." },
+            { en: "Trump points a finger, says the rules must apply,", fr: "Trump pointe du doigt, dit que les règles doivent s'appliquer," },
+            { en: "While FIFA acts confused under the summer sky.", fr: "Tandis que la FIFA feint la confusion sous le ciel d'été." },
+            { en: "The fans are shouting out, they want to see the game,", fr: "Les supporters hurlent, ils veulent voir le match," },
+            { en: "But the locked door remains a monument of shame.", fr: "Mais la porte verrouillée demeure un monument de honte." },
+            { en: "No diplomatic visa, no access to the grass,", fr: "Pas de visa diplomatique, aucun accès à la pelouse," },
+            { en: "Let's see how this elite chess match will pass.", fr: "Voyons comment cette partie d'échecs d'élite va se terminer." },
+            { en: "Will they break the deadlock before the whistle blows?", fr: "Briseront-ils l'impasse avant que le coup de sifflet ne retentisse ?" },
+            { en: "Only the story of things knows how it goes!", fr: "Seul l'histoire des choses sait comment cela se finit !" }
+        ];
+
+        let userProgress = new Array(quizDatabase.length).fill(null);
+
+        function renderQuiz() {
+            const mount = document.getElementById('quiz-mount');
+            let currentCat = "";
+
+            quizDatabase.forEach((item, index) => {
+                if (item.cat !== currentCat) {
+                    currentCat = item.cat;
+                    const header = document.createElement('div');
+                    header.className = 'category-header';
+                    header.innerText = currentCat;
+                    mount.appendChild(header);
+                }
+
+                const block = document.createElement('div');
+                block.className = 'question-box';
+                block.id = `q-box-${index}`;
+
+                const title = document.createElement('div');
+                title.className = 'question-title';
+                title.innerText = `${index + 1}. ${item.q}`;
+                block.appendChild(title);
+
+                const grid = document.createElement('div');
+                grid.className = 'options-grid';
+
+                item.o.forEach((option, oIdx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.innerText = option;
+                    btn.onclick = () => handleSelection(index, oIdx);
+                    grid.appendChild(btn);
+                });
+
+                block.appendChild(grid);
+
+                const fb = document.createElement('div');
+                fb.className = 'feedback-box';
+                fb.id = `feedback-${index}`;
+                fb.innerHTML = `<strong>Analysis:</strong> ${item.e}`;
+                block.appendChild(fb);
+
+                mount.appendChild(block);
+            });
+        }
+
+        function handleSelection(qIdx, oIdx) {
+            if (userProgress[qIdx] !== null) return;
+
+            userProgress[qIdx] = oIdx;
+            const block = document.getElementById(`q-box-${qIdx}`);
+            const buttons = block.getElementsByClassName('option-btn');
+            const targetCorrect = quizDatabase[qIdx].c;
+
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.add('disabled');
+                if (i === targetCorrect) buttons[i].classList.add('correct');
+                if (i === oIdx && oIdx !== targetCorrect) buttons[i].classList.add('wrong');
+            }
+
+            document.getElementById(`feedback-${qIdx}`).style.display = 'block';
+        }
+
+        function evaluateQuiz() {
+            let correctCount = 0;
+            const errMount = document.getElementById('error-mount');
+            errMount.innerHTML = '';
+
+            quizDatabase.forEach((item, index) => {
+                const choice = userProgress[index];
+                if (choice === item.c) {
+                    correctCount++;
+                } else {
+                    const errorCard = document.createElement('div');
+                    errorCard.className = 'error-log';
+                    const answerText = choice !== null ? item.o[choice] : "No selection recorded";
+                    errorCard.innerHTML = `
+                        <strong>Question ${index + 1}:</strong> ${item.q}<br>
+                        <span style="color:var(--danger-color)">Your Entry: ${answerText}</span><br>
+                        <span style="color:var(--success-color)">Correct Key: ${item.o[item.c]}</span><br>
+                        <small style="color:#475569; display:block; margin-top:0.4rem;"><strong>Correction breakdown:</strong> ${item.e}</small>
+                    `;
+                    errMount.appendChild(errorCard);
+                }
+            });
+
+            if (correctCount === quizDatabase.length) {
+                errMount.innerHTML = '<p style="color:var(--success-color); font-weight:bold;">Flawless Execution! Mathieu achieved a 100% precision rating.</p>';
+            }
+
+            document.getElementById('score-text').innerText = `Metrics Summary: ${correctCount} / ${quizDatabase.length} Units`;
+            document.getElementById('results-container').style.display = 'block';
+            document.getElementById('results-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderExpressions() {
+            const mount = document.getElementById('expressions-mount');
+            expressionsData.forEach(item => {
+                const box = document.createElement('div');
+                box.className = 'expression-card';
+                box.innerHTML = `
+                    <div class="expression-head"><i class="fa-solid fa-angles-right"></i> "${item.exp}"</div>
+                    <div class="expression-details"><strong>Definition:</strong> ${item.mean}</div>
+                    <div class="expression-details"><strong>Analogous structures (Synonyms):</strong> <span style="color:#b45309">${item.syn}</span></div>
+                    <div class="expression-example">Practical Implementation: ${item.ex}</div>
+                `;
+                mount.appendChild(box);
+            });
+        }
+
+        function renderLyrics() {
+            const mount = document.getElementById('lyrics-mount');
+            
+            const engCol = document.createElement('div');
+            engCol.className = 'lyrics-column';
+            engCol.innerHTML = `<h3>Original Transcript (English)</h3>`;
+            
+            const frCol = document.createElement('div');
+            frCol.className = 'lyrics-column';
+            frCol.innerHTML = `<h3>Traduction Structurelle (French)</h3>`;
+
+            lyricsData.forEach(line => {
+                const el = document.createElement('div');
+                el.className = 'lyrics-line lyrics-english';
+                el.innerText = line.en;
+                engCol.appendChild(el);
+
+                const fl = document.createElement('div');
+                fl.className = 'lyrics-line lyrics-french';
+                fl.innerText = line.fr;
+                frCol.appendChild(fl);
+            });
+
+            mount.appendChild(engCol);
+            mount.appendChild(frCol);
+        }
+
+        window.onload = function() {
+            renderQuiz();
+            renderExpressions();
+            renderLyrics();
+        };
+    </script>
+</body>
+</html>
