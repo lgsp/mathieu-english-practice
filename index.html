@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathieu's English Masterclass - Learning Portal</title>
-    <!-- Tailwind CSS for modern utility styling -->
+    <title>Mathieu's Masterclass - 17 Hobbies for Transformation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for premium executive look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        }
+                    },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
@@ -25,363 +31,602 @@
             }
         }
     </script>
-    <style>
-        .custom-gradient {
-            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 40%),
-                        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 60%);
-        }
-    </style>
 </head>
-<body class="bg-[#f8fafc] text-[#334155] min-h-screen custom-gradient flex flex-col justify-between">
+<body class="bg-[#f8fafc] text-[#334155] min-h-screen flex flex-col justify-between">
 
-    <!-- Top Decorative Line -->
-    <div class="h-2 w-full bg-gradient-to-r from-blue-600 via-teal-500 to-amber-500"></div>
+    <div class="h-2 w-full bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600"></div>
 
-    <header class="max-w-6xl w-full mx-auto px-6 pt-12 pb-6">
+    <!-- Header -->
+    <header class="max-w-5xl w-full mx-auto px-6 pt-12 pb-6">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-b border-slate-200 pb-8">
             <div>
-                <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full">Private Education Portal</span>
-                <h1 class="font-serif text-4xl md:text-5xl font-bold text-slate-900 mt-3">Mathieu's Masterclass</h1>
-                <p class="text-slate-500 font-medium mt-1">Interactive curriculum & progress tracker for advanced English fluency</p>
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full">Advanced Lesson Portfolio</span>
+                <h1 class="font-serif text-4xl font-bold text-slate-900 mt-3">17 Hobbies That Will Make You Unrecognizable</h1>
+                <p class="text-slate-500 font-medium mt-1">Video Study: Self-Transformation, Cognitive Expansion & Skill Acquisition</p>
             </div>
-            
-            <!-- Quick Progress Stats widget -->
-            <div class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-sm flex items-center gap-4 min-w-[240px]">
-                <div class="relative w-14 h-14 flex items-center justify-center">
-                    <!-- Circular progress placeholder -->
-                    <svg class="absolute w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                        <path class="text-slate-100" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <path id="progress-circle" class="text-emerald-500 transition-all duration-500" stroke-dasharray="0, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    </svg>
-                    <span id="progress-percent" class="font-bold text-slate-800 text-sm">0%</span>
-                </div>
-                <div>
-                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Overall Progress</h4>
-                    <p id="progress-subtitle" class="text-sm font-semibold text-slate-700">0 of 4 Lessons Completed</p>
-                </div>
-            </div>
+            <a href="index.html" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-4 py-2.5 rounded-xl transition-all self-start md:self-auto">
+                <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+            </a>
         </div>
     </header>
 
-    <main class="max-w-6xl w-full mx-auto px-6 py-6 flex-grow">
-        <!-- Quick stats grid -->
-        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
-                <div class="text-blue-600 bg-blue-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
-                    <i class="fa-solid fa-graduation-cap"></i>
+    <!-- Main Content -->
+    <main class="max-w-5xl w-full mx-auto px-6 py-6 flex-grow">
+        
+        <!-- Video Embedded Container -->
+        <section class="mb-12">
+            <div class="bg-white border border-slate-200 p-4 rounded-3xl shadow-sm">
+                <div class="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-inner">
+                    <iframe 
+                        class="absolute inset-0 w-full h-full" 
+                        src="https://www.youtube.com/embed/NMb2Z_g7vSc" 
+                        title="17 Hobbies That Will Make You Unrecognizable" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
-                <div class="text-2xl font-extrabold text-slate-800">4</div>
-                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Total Lessons</div>
-            </div>
-            
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
-                <div class="text-teal-600 bg-teal-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
-                    <i class="fa-solid fa-circle-question"></i>
+                <div class="mt-4 flex items-center justify-between px-2 text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                    <span><i class="fa-solid fa-channel"></i> Channel: LimitlessVision</span>
+                    <span>Assignment Date: Tuesday, June 30, 2026</span>
                 </div>
-                <div class="text-2xl font-extrabold text-slate-800">80</div>
-                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Practice Items</div>
-            </div>
-
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
-                <div class="text-amber-600 bg-amber-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
-                    <i class="fa-solid fa-comment-dots"></i>
-                </div>
-                <div class="text-2xl font-extrabold text-slate-800">35</div>
-                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Key Expressions</div>
-            </div>
-
-            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
-                <div class="text-purple-600 bg-purple-50 w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-lg">
-                    <i class="fa-solid fa-award"></i>
-                </div>
-                <div class="text-2xl font-extrabold text-slate-800" id="xp-display">0 XP</div>
-                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mt-1">Experience Points</div>
             </div>
         </section>
 
-        <h2 class="font-serif text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-            <i class="fa-solid fa-calendar-days text-blue-500"></i> Your Thursday Lessons
-        </h2>
+        <!-- Navigation Tabs for Quiz Segments -->
+        <section class="mb-8">
+            <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-px">
+                <button onclick="switchTab('comprehension')" id="tab-comprehension" class="tab-btn px-5 py-3 text-sm font-bold border-b-2 border-emerald-600 text-emerald-600 transition-all">
+                    <i class="fa-solid fa-brain mr-1.5"></i> Comprehension
+                </button>
+                <button onclick="switchTab('pronunciation')" id="tab-pronunciation" class="tab-btn px-5 py-3 text-sm font-semibold text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition-all">
+                    <i class="fa-solid fa-mouth text-xs mr-1.5"></i> Pronunciation (IPA)
+                </button>
+                <button onclick="switchTab('vocabulary')" id="tab-vocabulary" class="tab-btn px-5 py-3 text-sm font-semibold text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition-all">
+                    <i class="fa-solid fa-book-open text-xs mr-1.5"></i> Vocabulary
+                </button>
+                <button onclick="switchTab('grammar')" id="tab-grammar" class="tab-btn px-5 py-3 text-sm font-semibold text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition-all">
+                    <i class="fa-solid fa-gears text-xs mr-1.5"></i> Grammar
+                </button>
+            </div>
+        </section>
 
-        <!-- Grid Layout to support 4 cards elegantly -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            
-            <!-- LESSON 1 CARD: May 28, 2026 -->
-            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-                <div>
-                    <div class="relative bg-slate-900 h-48 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://img.youtube.com/vi/dCGkt7_0Qpo/maxresdefault.jpg');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Economy & Satire</span>
-                        </div>
-                        <div class="absolute top-4 right-4" id="badge-l1">
-                            <span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700">
-                                <i class="fa-regular fa-circle"></i> Incomplete
-                            </span>
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Lesson 1</span>
-                            <h3 class="text-white font-bold text-lg leading-snug mt-1">The Great American Bankruptcy</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4">
-                            <i class="fa-solid fa-calendar"></i> Thursday, May 28, 2026
-                            <span class="text-slate-300">•</span>
-                            <i class="fa-solid fa-clock"></i> 20-Question Quiz
-                        </div>
-                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                            Analyze political satire, tax metaphors, and macroeconomic terms through Lego Records' viral music video. Expand your business, grammatical, and pronunciation skills.
-                        </p>
-                        <div class="space-y-2 border-t border-slate-100 pt-4 mb-2">
-                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Learn expressions like <span class="font-mono text-blue-600">"give or take"</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Practice past tenses, gerunds, and purpose clauses
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between gap-4">
-                    <label class="flex items-center gap-2 cursor-pointer select-none">
-                        <input type="checkbox" id="check-l1" onchange="toggleLessonStatus('l1')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
-                        <span class="text-xs font-bold text-slate-500">Mark Completed</span>
-                    </label>
-                    <a href="thursday-2026-05-28.html" target="_blank" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
-                        Start Lesson <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
+        <!-- Dynamic Quiz Window -->
+        <section class="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm mb-12">
+            <div id="quiz-container" class="space-y-8">
+                <!-- Injected via JavaScript -->
             </div>
 
-            <!-- LESSON 2 CARD: June 5, 2026 -->
-            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-                <div>
-                    <div class="relative bg-slate-900 h-48 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://img.youtube.com/vi/COzTfps9ezM/maxresdefault.jpg');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Cognitive Science</span>
-                        </div>
-                        <div class="absolute top-4 right-4" id="badge-l2">
-                            <span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700">
-                                <i class="fa-regular fa-circle"></i> Incomplete
-                            </span>
-                        </div>
-                        <div class="absolute bottom-4 left-4容right-4">
-                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Lesson 2</span>
-                            <h3 class="text-white font-bold text-lg leading-snug mt-1">The Genius Learning Pattern</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4">
-                            <i class="fa-solid fa-calendar"></i> Thursday, June 4, 2026
-                            <span class="text-slate-300">•</span>
-                            <i class="fa-solid fa-clock"></i> 20-Question Quiz
-                        </div>
-                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                            Discover how polymaths like Leonardo da Vinci and Richard Feynman mastered cross-pollination. Learn active recall strategies and avoid the "leaky bucket" trap.
-                        </p>
-                        <div class="space-y-2 border-t border-slate-100 pt-4 mb-2">
-                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Master verbs like <span class="font-mono text-blue-600">"cross-pollinate"</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Master silent letters and grammatical inversions
-                            </div>
-                        </div>
-                    </div>
+            <!-- Quiz Controls -->
+            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
+                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider" id="quiz-progress-text">
+                    Question 1 of 5
                 </div>
-                <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between gap-4">
-                    <label class="flex items-center gap-2 cursor-pointer select-none">
-                        <input type="checkbox" id="check-l2" onchange="toggleLessonStatus('l2')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
-                        <span class="text-xs font-bold text-slate-500">Mark Completed</span>
-                    </label>
-                    <a href="thursday-2026-06-04.html" target="_blank" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
-                        Start Lesson <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
+                <button onclick="handleNextButton()" id="next-btn" class="bg-slate-900 hover:bg-emerald-600 text-white text-xs font-bold px-6 py-3 rounded-xl transition-all shadow-sm flex items-center gap-2">
+                    Next Question <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
             </div>
+        </section>
 
-            <!-- LESSON 3 CARD: June 11, 2026 -->
-            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-                <div>
-                    <div class="relative bg-slate-900 h-48 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://img.youtube.com/vi/NCt8qWil0sM/maxresdefault.jpg');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Philosophy & Wisdom</span>
-                        </div>
-                        <div class="absolute top-4 right-4" id="badge-l3">
-                            <span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700">
-                                <i class="fa-regular fa-circle"></i> Incomplete
-                            </span>
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Lesson 3</span>
-                            <h3 class="text-white font-bold text-lg leading-snug mt-1">Laozi & The Flowing Void</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4">
-                            <i class="fa-solid fa-calendar"></i> Thursday, June 11, 2026
-                            <span class="text-slate-300">•</span>
-                            <i class="fa-solid fa-clock"></i> 20-Question Quiz
-                        </div>
-                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                            Explore Eastern philosophy, Taoist concepts like <i>Wu Wei</i>, and advanced metaphors of water. Enhance structural fluency, phonetic rules, and passive sentence architectures.
-                        </p>
-                        <div class="space-y-2 border-t border-slate-100 pt-4 mb-2">
-                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Idioms: <span class="font-mono text-blue-600">"let the dust settle"</span> &amp; <span class="font-mono text-blue-600">"carve a path"</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Study double comparatives and phonetic sound links (/aʊ/)
-                            </div>
-                        </div>
-                    </div>
+        <!-- Concrete Use Cases & Expressions -->
+        <section class="bg-slate-900 text-slate-100 rounded-3xl p-8 shadow-md">
+            <h2 class="font-serif text-2xl font-bold text-white mb-2 flex items-center gap-3">
+                <i class="fa-solid fa-quote-left text-emerald-400 text-xl"></i> 10 Key Expressions & Practical Idioms
+            </h2>
+            <p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-8 border-b border-slate-800 pb-4">
+                Extracted native formulas for discussing high-impact hobbies and lifestyle modifications
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">01. To undergo a massive transformation</span>
+                    <p class="text-slate-300 text-sm font-medium">Subir une transformation radicale.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"Picking up martial arts caused him to undergo a massive transformation, physically and mentally."</p>
                 </div>
-                <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between gap-4">
-                    <label class="flex items-center gap-2 cursor-pointer select-none">
-                        <input type="checkbox" id="check-l3" onchange="toggleLessonStatus('l3')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
-                        <span class="text-xs font-bold text-slate-500">Mark Completed</span>
-                    </label>
-                    <a href="thursday-2026-06-11.html" target="_blank" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
-                        Start Lesson <i class="fa-solid fa-chevron-right"></i>
-                    </a>
+
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">02. To sharpen one's intellect</span>
+                    <p class="text-slate-300 text-sm font-medium">Aiguiser/stimuler ses capacités intellectuelles.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"Learning a secondary language isn't just a party trick; it thoroughly sharpens your intellect."</p>
                 </div>
+
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">03. To build something from scratch</span>
+                    <p class="text-slate-300 text-sm font-medium">Construire quelque chose à partir de rien / de zéro.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"Coding as a hobby empowers you to build software applications completely from scratch."</p>
+                </div>
+
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">04. To think outside the box</span>
+                    <p class="text-slate-300 text-sm font-medium">Penser de manière non conventionnelle / faire preuve de créativité.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"Creative hobbies like painting or writing force your brain to think outside the box."</p>
+                </div>
+
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">05. To get out of one's comfort zone</span>
+                    <p class="text-slate-300 text-sm font-medium">Sortir de sa zone de confort.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"Joining a public speaking club is terrifying, but it's the fastest way to get out of your comfort zone."</p>
+                </div>
+
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">06. To be a double-edged sword</span>
+                    <p class="text-slate-300 text-sm font-medium">Être un couteau à double tranchant.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"Consuming content can be a double-edged sword; it either educates you or drains your focus."</p>
+                </div>
+
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">07. To gain a fresh perspective</span>
+                    <p class="text-slate-300 text-sm font-medium">Acquérir un regard neuf / un nouvel angle de vue.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"Traveling alone allowed her to step away from societal loops and gain a fresh perspective on her career."</p>
+                </div>
+
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">08. To pay off in the long run</span>
+                    <p class="text-slate-300 text-sm font-medium">Porter ses fruits à long terme / s'avérer payant avec le temps.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"Cooking healthy meals might feel time-consuming now, but it definitely pays off in the long run."</p>
+                </div>
+
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">09. To keep someone grounded</span>
+                    <p class="text-slate-300 text-sm font-medium">Garder les pieds sur terre / maintenir un équilibre interne.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"Despite his hectic executive routine, a daily gardening session keeps him grounded."</p>
+                </div>
+
+                <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl">
+                    <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">10. To master a high-income skill</span>
+                    <p class="text-slate-300 text-sm font-medium">Maîtriser une compétence à forte valeur financière.</p>
+                    <p class="text-slate-500 italic text-xs mt-2">"The video highlights that learning how to analyze complex data structures is a true high-income skill."</p>
+                </div>
+
             </div>
-
-            <!-- NEWLY ADDED LESSON 4 CARD: June 18, 2026 -->
-            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group border-amber-200 ring-2 ring-amber-500/10">
-                <div>
-                    <div class="relative bg-slate-900 h-48 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-all duration-500" style="background-image: url('https://img.youtube.com/vi/QtkUl4BvKIk/maxresdefault.jpg');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">Geopolitics & Media</span>
-                        </div>
-                        <div class="absolute top-4 right-4" id="badge-l4">
-                            <span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700">
-                                <i class="fa-regular fa-circle"></i> Incomplete
-                            </span>
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Lesson 4</span>
-                            <h3 class="text-white font-bold text-lg leading-snug mt-1">Iran's Viral LEGO Rap (World Cup 2026)</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4">
-                            <i class="fa-solid fa-calendar"></i> Thursday, June 18, 2026
-                            <span class="text-slate-300">•</span>
-                            <i class="fa-solid fa-clock"></i> 20-Question Quiz
-                        </div>
-                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                            Analyze diplomatic friction, executive lockouts, and FIFA frameworks using a high-tempo satirical narrative. Master advanced phonetic assimilation patterns and inverted conditionals.
-                        </p>
-                        <div class="space-y-2 border-t border-slate-100 pt-4 mb-2">
-                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Idioms: <span class="font-mono text-blue-600">"behind closed doors"</span> &amp; <span class="font-mono text-blue-600">"hit a brick wall"</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                                <i class="fa-solid fa-check text-emerald-500"></i> Evaluate geminate consonants and dependent prepositions
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between gap-4">
-                    <label class="flex items-center gap-2 cursor-pointer select-none">
-                        <input type="checkbox" id="check-l4" onchange="toggleLessonStatus('l4')" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
-                        <span class="text-xs font-bold text-slate-500">Mark Completed</span>
-                    </label>
-                    <a href="thursday-2026-06-18.html" target="_blank" class="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
-                        Start Lesson <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
+        </section>
     </main>
 
-    <footer class="bg-white border-t border-slate-200 mt-16">
-        <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold text-slate-400 uppercase tracking-widest">
-            <div>
-                <i class="fa-solid fa-circle-nodes text-slate-300 mr-1"></i> Interactive English Portfolio
+    <!-- Error Review Modal -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50 animate-fade-in">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl p-6 md:p-8 border border-slate-200">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-square-poll-vertical"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-slate-900">Quiz Diagnostic Report</h3>
+                        <p class="text-xs font-medium text-slate-400">Reviewing your performance for this category</p>
+                    </div>
+                </div>
+                <button onclick="closeReviewModal()" class="text-slate-400 hover:text-slate-600 p-2 text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div>
-                Curriculum Updated June 2026
+            
+            <div id="modal-score" class="text-center bg-slate-50 py-4 rounded-2xl mb-6">
+                <!-- Populated via script -->
             </div>
+
+            <div id="modal-errors-list" class="space-y-4">
+                <!-- Populated via script -->
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-slate-100 flex justify-end">
+                <button onclick="closeReviewModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-6 py-3 rounded-xl transition-all">
+                    Got it, Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+        <div class="max-w-5xl mx-auto px-6 text-center text-xs font-semibold text-slate-400 uppercase tracking-widest">
+            Mathieu's Private Curriculum Portal • LimitlessVision Study Series
         </div>
     </footer>
 
-    <!-- Script extended to robustly manage 4 lessons state -->
+    <!-- Database & Core Interactive Script Engine -->
     <script>
-        const storageKey = 'mathieu_lessons_state_2026';
-
-        // Initial state extended to 4 blocks
-        let state = {
-            l1: false,
-            l2: false,
-            l3: false,
-            l4: false
+        const databaseMCQ = {
+            comprehension: [
+                {
+                    q: "According to the video, why is coding highlighted as a highly transformational hobby?",
+                    options: [
+                        "Because it lets you memorize standard computer hardware configurations.",
+                        "Because it forces structured logical thinking and enables you to build scalable things from scratch.",
+                        "Because it requires zero continuous learning or practice once mastered.",
+                        "Because it is exclusively a group hobby meant for software engineering companies."
+                    ],
+                    correct: 1, // Option B
+                    explain: "Coding teaches you logical structures and problem-solving, moving you from a passive consumer to a creator who builds from scratch."
+                },
+                {
+                    q: "What benefit does learning a secondary language provide besides simple communication?",
+                    options: [
+                        "It primarily alters your native vocabulary pronunciation syntax structures.",
+                        "It acts as a neuroprotective shield, expanding cognitive pathways and memory flexibility.",
+                        "It restricts your cultural circle to academic circles.",
+                        "It eliminates the necessity for traveling to foreign countries."
+                    ],
+                    correct: 1, // Option B
+                    explain: "Language acquisition demands complex cognitive task-switching, which sharpens mental plasticity and improves strategic focus."
+                },
+                {
+                    q: "How does the video contrast martial arts with conventional commercial gym lifting?",
+                    options: [
+                        "Gym lifting provides better emotional and tactical survival self-defense skills.",
+                        "Martial arts focus purely on muscle volume hypertrophy without discipline.",
+                        "Martial arts combine physical fitness with severe mental mastery, stress inoculation, and humility.",
+                        "Gym lifting is always prioritized as a higher cognitive skill."
+                    ],
+                    correct: 2, // Option C
+                    explain: "Martial arts offer a holistic framework by merging rigorous physical thresholds with spatial awareness and tactical self-regulation."
+                },
+                {
+                    q: "Why is public speaking or joining groups like Toastmasters categorized as a life-changing hobby?",
+                    options: [
+                        "It completely bypasses the need for structured slide deck presentations.",
+                        "It forces immediate exit from comfort loops, overriding social fear and elevating executive expression.",
+                        "It guarantees instant high-income employment opportunities.",
+                        "It is designed solely for professional actors and stage performers."
+                    ],
+                    correct: 1, // Option B
+                    explain: "Public speaking builds unprecedented self-confidence by habituating your central nervous system to high-stakes social evaluation."
+                },
+                {
+                    q: "What risk does excessive content consumption pose if not paired with active execution?",
+                    options: [
+                        "It transforms into a double-edged sword that triggers analysis paralysis and a false sense of achievement.",
+                        "It immediately increases operational memory without requiring study.",
+                        "It permanently damages physical motor skill baselines.",
+                        "It simplifies the cognitive load needed to pick up cooking or writing."
+                    ],
+                    correct: 0, // Option A
+                    explain: "Passive learning floods the brain with dopamine, creating a dangerous illusion of progress while keeping execution at absolute zero."
+                }
+            ],
+            pronunciation: [
+                {
+                    q: "Identify the accurate IPA phonetic transcription for the word 'Hobby'.",
+                    options: [
+                        "/hoʊ.biː/",
+                        "/ˈhɒb.i/ (UK) or /ˈhɑːb.i/ (US)",
+                        "/ˈhʌb.aɪ/",
+                        "/həˈbiː/"
+                    ],
+                    correct: 1, // Option B
+                    explain: "The letter 'o' in 'hobby' represents a short open back unrounded/rounded vowel sound, never a diphthong like /oʊ/."
+                },
+                {
+                    q: "Which word contains the exact matching vowel sound found in the first syllable of 'Transformation' /ˌtræns.fəˈmeɪ.ʃən/?",
+                    options: [
+                        "Massive (/ˈmæs.ɪv/)",
+                        "Watch (/wɒtʃ/)",
+                        "Settle (/ˈset.əl/)",
+                        "Grounded (/ˈɡraʊn.dɪd/)"
+                    ],
+                    correct: 0, // Option A
+                    explain: "Both 'transformation' and 'massive' rely on the short front unrounded vowel /æ/."
+                },
+                {
+                    q: "Where does the primary lexical stress lie in the word 'Intellect'?",
+                    options: [
+                        "On the final syllable: in-tel-LECT",
+                        "On the middle syllable: in-TEL-lect",
+                        "On the first syllable: IN-tel-lect",
+                        "It is fully distributed across all syllables evenly."
+                    ],
+                    correct: 2, // Option C
+                    explain: "'Intellect' is correctly transcribed as /ˈɪn.təl.ekt/, placing the primary stress emphasis firmly on the very first syllable."
+                },
+                {
+                    q: "In the phonetic transcription of 'Scratch' (/skrætʃ/), what type of consonant sound is /tʃ/?",
+                    options: [
+                        "A lateral liquid sound",
+                        "An unvoiced affricate consonant",
+                        "A voiced nasal stop",
+                        "A pure velar plosive"
+                    ],
+                    correct: 1, // Option B
+                    explain: "The phonetic character /tʃ/ represents a voiceless palato-alveolar affricate, like the 'ch' sound in 'choice' or 'scratch'."
+                },
+                {
+                    q: "What pronunciation trap occurs when a native French speaker utters the word 'Unrecognizable'?",
+                    options: [
+                        "Pronouncing the initial 'U' as /uː/ instead of using the unrounded central vowel /ʌ/.",
+                        "Failing to drop the sound of the final letter 'e'.",
+                        "Elongating the internal silent letter 'g'.",
+                        "Shifting the stress profile to the final syllable structure exclusively."
+                    ],
+                    correct: 0, // Option A
+                    explain: "The prefix 'un-' is pronounced with a short cut vowel sound /ʌ/ (/ˌʌn.rɛk.əɡˈnaɪ.zə.bəl/). Avoid pronouncing it like the French 'ou'."
+                }
+            ],
+            vocabulary: [
+                {
+                    q: "What does the expression 'to pick up a hobby' specifically mean in conversational contexts?",
+                    options: [
+                        "To drop a task that has become boring or tedious.",
+                        "To clean or organize a creative workshop space.",
+                        "To start or adopt a new regular practice or interest.",
+                        "To pay for an advanced tutorial or masterclass subscription."
+                    ],
+                    correct: 2, // Option C
+                    explain: "'To pick up' is a highly common phrasal verb meaning to acquire a skill or adopt a new habit organically."
+                },
+                {
+                    q: "If a hobby 'keeps you grounded', what character trait is it successfully reinforcing?",
+                    options: [
+                        "Extreme professional isolation.",
+                        "Humility, emotional balance, and stability.",
+                        "Arrogance and cognitive dominance.",
+                        "Chronic physical fatigue."
+                    ],
+                    correct: 1, // Option B
+                    explain: "Being 'grounded' implies staying connected to reality with a balanced, clear mind, preventing ego inflation or erratic stress spikes."
+                },
+                {
+                    q: "Select the phrase that serves as an exact contextual synonym for 'from scratch'.",
+                    options: [
+                        "From a state of peak financial wealth.",
+                        "Using pre-built modular templates exclusively.",
+                        "From absolute zero / without any prior foundation.",
+                        "By imitating competitors down to every minor detail."
+                    ],
+                    correct: 2, // Option C
+                    explain: "Doing something 'from scratch' means creating it entirely out of raw elements, without utilizing pre-existing baselines."
+                },
+                {
+                    q: "What does the video imply when it states that a hobby can become a 'double-edged sword'?",
+                    options: [
+                        "It can have both highly favorable and severely unfavorable outcomes.",
+                        "It requires precise historical physical metal tool handling skills.",
+                        "It is twice as expensive as a traditional athletic club.",
+                        "It instantly divides your attention into two separate careers."
+                    ],
+                    correct: 0, // Option A
+                    explain: "A double-edged sword has two sharp sides—meaning it holds the potential to help you or harm you depending on your approach."
+                },
+                {
+                    q: "What is a 'high-income skill' as referenced in self-development media landscapes?",
+                    options: [
+                        "A skill that allows you to work fewer hours without any specific training.",
+                        "A highly specialized capacity that commands substantial market valuation and pricing leverage.",
+                        "Any task that requires high physical strength thresholds.",
+                        "A recreational game with significant cash prizes."
+                    ],
+                    correct: 1, // Option B
+                    explain: "High-income skills (like coding, complex financial analysis, or advanced public speaking) command premium market rates due to low supply."
+                }
+            ],
+            grammar: [
+                {
+                    q: "Choose the grammatically sound structure for a hypothetical past condition regarding a hobby choice.",
+                    options: [
+                        "If I would have picked up coding back then, I would build software now.",
+                        "If I had picked up coding back then, I would be building software now.",
+                        "If I picked up coding back then, I will build software now.",
+                        "If I have picked up coding back then, I would have built software now."
+                    ],
+                    correct: 1, // Option B
+                    explain: "This requires a Mixed Conditional (Past Condition -> Present Result): If + Past Perfect, followed by WOULD + Verb-ing/Base form."
+                },
+                {
+                    q: "Identify the correct gerund placement after standard prepositional phrases.",
+                    options: [
+                        "He committed himself to spend three hours a week practicing guitar.",
+                        "He committed himself to spending three hours a week practicing guitar.",
+                        "He committed himself for spend three hours a week practicing guitar.",
+                        "He committed himself to spent three hours a week practicing guitar."
+                    ],
+                    correct: 1, // Option B
+                    explain: "In 'commit oneself to', the word 'to' acts as a preposition, requiring a gerund ('spending') rather than a base infinitive."
+                },
+                {
+                    q: "Which sentence accurately employs an inverted condition to maximize professional emphasis?",
+                    options: [
+                        "Should you adopt these hobbies, your focus will inevitably skyrocket.",
+                        "Had you adopt these hobbies, your focus will inevitably skyrocket.",
+                        "Did you adopt these hobbies, your focus would have inevitably skyrocket.",
+                        "Would you adopt these hobbies, your focus should skyrocket."
+                    ],
+                    correct: 0, // Option A
+                    explain: "'Should you adopt' is a high-level inversion replacing 'If you adopt', which perfectly matches first conditional predictive formats."
+                },
+                {
+                    q: "Identify the structural error in: 'The benefits of reading daily is known to sharpen a person's focus over time.'",
+                    options: [
+                        "The past participle 'known' should be replaced with 'knew'.",
+                        "The subject-verb agreement is broken; 'benefits' requires the plural verb 'are'.",
+                        "The preposition 'of' must change to 'for'.",
+                        "The word 'daily' cannot follow the gerund 'reading'."
+                    ],
+                    correct: 1, // Option B
+                    explain: "The head noun of the complex subject is the plural 'benefits', hence the auxiliary verb must be 'are' instead of 'is'."
+                },
+                {
+                    q: "Complete the following advanced causal phrase: 'No sooner ______ public speaking than his chronic social anxiety began to dissolve.'",
+                    options: [
+                        "he had tried",
+                        "did he tried",
+                        "had he tried",
+                        "has he tried"
+                    ],
+                    correct: 2, // Option C
+                    explain: "When starting a sentence with negative adverbial expressions like 'No sooner', inversion is mandatory: 'had he tried'."
+                }
+            ]
         };
 
-        function loadState() {
-            const saved = localStorage.getItem(storageKey);
-            if (saved) {
-                try {
-                    state = JSON.parse(saved);
-                } catch(e) {
-                    console.error("Error parsing stored states", e);
-                }
-            }
-            updateUI();
-        }
+        let currentTab = 'comprehension';
+        let currentQuestionIndex = 0;
+        let userAnswers = []; // Stores indices chosen by user
+        let currentCategoryCompleted = false;
 
-        function toggleLessonStatus(lessonId) {
-            state[lessonId] = document.getElementById(`check-${lessonId}`).checked;
-            localStorage.setItem(storageKey, JSON.stringify(state));
-            updateUI();
-        }
+        function renderQuestion() {
+            const container = document.getElementById('quiz-container');
+            const questions = databaseMCQ[currentTab];
+            const currentQ = questions[currentQuestionIndex];
+            
+            // Set Progress Tracking
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+            
+            let html = `
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">
+                        Category: ${currentTab.toUpperCase()}
+                    </span>
+                    <h3 class="text-slate-800 font-bold text-lg md:text-xl mt-3 leading-snug">
+                        ${currentQ.q}
+                    </h3>
+                </div>
+                <div class="grid grid-cols-1 gap-3">
+            `;
 
-        function updateUI() {
-            let completedCount = 0;
-            const lessonsList = ['l1', 'l2', 'l3', 'l4'];
-
-            lessonsList.forEach(id => {
-                const checkBox = document.getElementById(`check-${id}`);
-                const badge = document.getElementById(`badge-${id}`);
+            currentQ.options.forEach((option, idx) => {
+                const labelLetter = String.fromCharCode(65 + idx); // A, B, C, D
                 
-                if (checkBox && badge) {
-                    checkBox.checked = state[id] || false;
-                    if (state[id]) {
-                        completedCount++;
-                        badge.innerHTML = `<span class="bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm"><i class="fa-solid fa-circle-check"></i> Completed</span>`;
+                // Determine layout states if already answered
+                let btnStyle = "border-slate-200 hover:border-slate-300 hover:bg-slate-50/50";
+                let badgeStyle = "bg-slate-100 text-slate-500 group-hover:bg-slate-200";
+                let isDisabled = "";
+                let iconHtml = "";
+
+                if (userAnswers[currentQuestionIndex] !== undefined) {
+                    isDisabled = "disabled";
+                    const selectedIdx = userAnswers[currentQuestionIndex];
+                    
+                    if (idx === currentQ.correct) {
+                        btnStyle = "border-emerald-500 bg-emerald-50 text-emerald-900 font-medium";
+                        badgeStyle = "bg-emerald-500 text-white";
+                        iconHtml = `<i class="fa-solid fa-circle-check text-emerald-600 ml-auto"></i>`;
+                    } else if (idx === selectedIdx) {
+                        btnStyle = "border-rose-400 bg-rose-50 text-rose-900";
+                        badgeStyle = "bg-rose-500 text-white";
+                        iconHtml = `<i class="fa-solid fa-circle-xmark text-rose-500 ml-auto"></i>`;
                     } else {
-                        badge.innerHTML = `<span class="bg-slate-800/80 backdrop-blur-sm text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-slate-700"><i class="fa-regular fa-circle"></i> Incomplete</span>`;
+                        btnStyle = "border-slate-100 bg-slate-50/30 opacity-60";
                     }
                 }
+
+                html += `
+                    <button onclick="selectOption(${idx})" ${isDisabled} class="group border text-left p-4 rounded-xl flex items-center gap-4 transition-all w-full text-sm ${btnStyle}">
+                        <span class="w-7 h-7 rounded-lg text-xs font-bold flex items-center justify-center tracking-wide shrink-0 ${badgeStyle}">
+                            ${labelLetter}
+                        </span>
+                        <span>${option}</span>
+                        ${iconHtml}
+                    </button>
+                `;
             });
 
-            // Recalculated for a total of 4 lessons
-            const totalLessons = 4;
-            const percent = Math.round((completedCount / totalLessons) * 100);
-            
-            document.getElementById('progress-percent').innerText = `${percent}%`;
-            document.getElementById('progress-subtitle').innerText = `${completedCount} of ${totalLessons} Lessons Completed`;
-            
-            const circle = document.getElementById('progress-circle');
-            circle.setAttribute('stroke-dasharray', `${percent}, 100`);
+            html += `</div>`;
 
-            // Awards 100 XP per completed lesson (Max 400 XP)
-            document.getElementById('xp-display').innerText = `${completedCount * 100} XP`;
+            // If question answered, display explanation box directly underneath
+            if (userAnswers[currentQuestionIndex] !== undefined) {
+                const isCorrect = userAnswers[currentQuestionIndex] === currentQ.correct;
+                html += `
+                    <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-200 text-emerald-950' : 'bg-slate-50 border-slate-200 text-slate-700'} text-xs leading-relaxed animate-fade-in mt-4">
+                        <strong class="font-bold block mb-1 text-slate-900 uppercase tracking-wide">
+                            <i class="fa-solid fa-circle-info mr-1"></i> Diagnostic Feedback:
+                        </strong>
+                        ${currentQ.explain}
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+            
+            // Toggle button label based on quiz context position
+            const nextBtn = document.getElementById('next-btn');
+            if (currentQuestionIndex === questions.length - 1) {
+                nextBtn.innerHTML = `View Category Report <i class="fa-solid fa-square-poll-vertical ml-1"></i>`;
+            } else {
+                nextBtn.innerHTML = `Next Question <i class="fa-solid fa-chevron-right text-[10px] ml-1"></i>`;
+            }
         }
 
-        window.onload = loadState;
-    </script>
+        function selectOption(optionIndex) {
+            if (userAnswers[currentQuestionIndex] !== undefined) return; // Prevent double trigger
+            userAnswers[currentQuestionIndex] = optionIndex;
+            renderQuestion();
+        }
 
+        function handleNextButton() {
+            const questions = databaseMCQ[currentTab];
+            
+            if (userAnswers[currentQuestionIndex] === undefined) {
+                alert("Please evaluate the choices and pick an option before proceeding.");
+                return;
+            }
+
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+            } else {
+                openReviewModal();
+            }
+        }
+
+        function switchTab(tabId) {
+            currentTab = tabId;
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-emerald-600', 'text-emerald-600');
+                btn.classList.add('border-transparent', 'text-slate-500');
+            });
+
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.remove('border-transparent', 'text-slate-500');
+            activeBtn.classList.add('border-b-2', 'border-emerald-600', 'text-emerald-600');
+            
+            renderQuestion();
+        }
+
+        function openReviewModal() {
+            const questions = databaseMCQ[currentTab];
+            let score = 0;
+            let errorsHtml = "";
+
+            questions.forEach((q, idx) => {
+                const userChoice = userAnswers[idx];
+                const isCorrect = userChoice === q.correct;
+                if (isCorrect) score++;
+
+                const letterUser = userChoice !== undefined ? String.fromCharCode(65 + userChoice) : 'N/A';
+                const letterCorrect = String.fromCharCode(65 + q.correct);
+
+                errorsHtml += `
+                    <div class="p-4 rounded-xl border text-xs ${isCorrect ? 'bg-emerald-50/20 border-emerald-100' : 'bg-rose-50/20 border-rose-100'}">
+                        <div class="flex items-center gap-2 font-bold mb-1">
+                            <span class="${isCorrect ? 'text-emerald-600' : 'text-rose-600'}">Question ${idx + 1}:</span>
+                            <span class="text-slate-800">${isCorrect ? 'Passed' : 'Review Required'}</span>
+                        </div>
+                        <p class="text-slate-600 mb-2 font-medium">${q.q}</p>
+                        <div class="space-y-1 text-slate-500 pl-2 border-l-2 border-slate-200">
+                            <div>Your choice: <span class="font-bold ${isCorrect ? 'text-emerald-600' : 'text-rose-600'}">${letterUser}) ${q.options[userChoice] || ''}</span></div>
+                            ${!isCorrect ? `<div>Correct option: <span class="font-bold text-emerald-600">${letterCorrect}) ${q.options[q.correct]}</span></div>` : ''}
+                        </div>
+                        <p class="text-slate-400 mt-2 italic">Note: ${q.explain}</p>
+                    </div>
+                `;
+            });
+
+            document.getElementById('modal-score').innerHTML = `
+                <div class="text-3xl font-extrabold text-slate-800">${score} / ${questions.length}</div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mt-1">Category Final Score</div>
+            `;
+            document.getElementById('modal-errors-list').innerHTML = errorsHtml;
+            document.getElementById('modal-backdrop').classList.remove('hidden');
+        }
+
+        function closeReviewModal() {
+            document.getElementById('modal-backdrop').classList.add('hidden');
+        }
+
+        // Bootstrap on DOM load
+        window.onload = () => {
+            renderQuestion();
+        };
+    </script>
 </body>
 </html>
